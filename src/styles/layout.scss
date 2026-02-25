@@ -1,16 +1,16 @@
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: $container-padding-x $container-padding-y;
+  padding: var(--container-padding);
 }
 
 .section {
-  padding: calc($container-padding-y * 3) 0;
+  padding: 2rem 13rem;
 }
 
 .wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: $container-padding-x;
+  gap: var(--container-padding);
 }

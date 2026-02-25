@@ -1,14 +1,12 @@
-import clsx from "clsx";
+import styles from './styles.module.scss';
 
-import styles from "./styles.module.scss";
-
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <div className={clsx(styles.app, "container")}>
+    <div className={styles['app']}>
       <Header />
       <Main />
       <Footer />

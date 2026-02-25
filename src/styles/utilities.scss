@@ -1,0 +1,18 @@
+.bottom-divider {
+  border-bottom: 0.1rem solid rgba(var(--color-black), 0.35);
+  box-shadow:
+    0 0.1rem 0.6rem rgba(var(--color-black), 0.25),
+    0 0 0.12rem rgba(var(--color-black), 0.15);
+}
+
+.soft-glow {
+  box-shadow:
+    0 0 0.8rem rgba(255, 255, 255, 0.2),
+    0 0 0.16rem rgba(255, 255, 255, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.accent-glow {
+  filter: blur(0.2rem);
+  color: rgba(var(--color-accent), 0.5);
+}

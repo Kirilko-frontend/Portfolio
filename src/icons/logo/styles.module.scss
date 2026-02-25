@@ -1,0 +1,66 @@
+.letter {
+  transform-origin: center;
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+}
+
+.signal {
+  opacity: 0;
+  animation: ping 2s ease-in-out infinite;
+}
+
+.s1 {
+  animation-delay: 0s;
+}
+.s2 {
+  animation-delay: 0.4s;
+}
+.s3 {
+  animation-delay: 0.8s;
+}
+.s4 {
+  animation-delay: 1.2s;
+}
+
+@keyframes ping {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.logo:hover .frame {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: draw-frame 0.6s ease forwards;
+}
+
+@keyframes draw-frame {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

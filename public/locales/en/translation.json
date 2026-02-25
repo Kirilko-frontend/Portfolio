@@ -1,0 +1,9 @@
+{
+  "header": {
+    "nav-about": "About",
+    "nav-skills": "Skills",
+    "nav-portfolio": "Portfolio",
+    "nav-works-experience": "Works & Experience",
+    "nav-contact": "Contact"
+  }
+}

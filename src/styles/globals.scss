@@ -1,16 +1,23 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use './variables' as *;
+
 :root {
-  --color-bg: #{$color-bg};
-  --color-text: #{$color-text};
-  --color-accent: #{$color-accent};
-  --transition: #{$transition};
-
-  --container-width: #{$container-width};
-  --container-padding: #{$container-padding};
-
-  --font-family: #{$font-family};
-  --font-size-base: #{$font-size-base};
-  --font-size-lg: #{$font-size-lg};
-  --font-size-xl: #{$font-size-xl};
+  @each $key, $value in $theme {
+    @if meta.type-of($value) == 'list' {
+      // Превращаем список в строку через запятую
+      $value-str: '';
+      @for $i from 1 through list.length($value) {
+        $value-str: $value-str + list.nth($value, $i);
+        @if $i != list.length($value) {
+          $value-str: $value-str + ', ';
+        }
+      }
+      --#{$key}: #{$value-str};
+    } @else {
+      --#{$key}: #{$value};
+    }
+  }
 }
 
 html {
@@ -20,8 +27,8 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: 1.5;
