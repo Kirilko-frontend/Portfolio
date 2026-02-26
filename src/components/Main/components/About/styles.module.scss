@@ -1,0 +1,38 @@
+.about {
+  @include flex-center;
+  gap: 5rem;
+}
+
+.about__description {
+  @include flex-column-start;
+  gap: 0.5rem;
+  min-height: 35rem;
+  min-width: 47rem;
+}
+
+.about__description-title {
+  @include font(400, 1.9rem, 1.2);
+  color: rgb(var(--color-white));
+
+  span {
+    color: rgb(var(--color-accent));
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}

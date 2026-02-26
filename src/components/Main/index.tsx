@@ -1,10 +1,12 @@
+import About from './components/About';
+
 import styles from './styles.module.scss';
 
 const Main = () => {
   return (
-    <section className={styles['main']}>
-      <h1></h1>
-    </section>
+    <main className={`${styles['main']} container`}>
+      <About />
+    </main>
   );
 };
 

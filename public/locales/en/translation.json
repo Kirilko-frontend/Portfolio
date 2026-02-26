@@ -5,5 +5,19 @@
     "nav-portfolio": "Portfolio",
     "nav-works-experience": "Works & Experience",
     "nav-contact": "Contact"
+  },
+  "about": {
+    "title1": "<span>Hi!</span> I’m Kyrylo, a passionate Frontend Developer specializing in React and modern web technologies.",
+    "title2": "I mainly work with React, JavaScript, Tailwind, and SASS to build responsive and interactive web interfaces.",
+    "title3": "I enjoy creating pixel-perfect designs and smooth UI animations that enhance user experience.",
+    "title4": "I’m looking to grow as a frontend developer, learning new technologies and building great user interfaces.",
+    "card-title": "Frontend Developer Card",
+    "card-developer": "Developer : Kyrylo Kakulia",
+    "direction": "Direction : Frontend",
+    "main-stack": "Main stack : HTML, CSS, SASS, JAVASCRIPT, REACT",
+    "experience": "Experience : 2 years",
+    "focus": "Focus : UI/UX, Responsive Design, Animations & Transitions, Performance Optimization",
+    "favorite-tech": "Favorite tech : React",
+    "fun-fact": "Fun fact : Loves pixel-perfect design"
   }
 }

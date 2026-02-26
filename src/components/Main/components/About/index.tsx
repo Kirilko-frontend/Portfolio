@@ -1,0 +1,48 @@
+import { useEffect, useState } from 'react';
+
+import { useTranslation } from 'react-i18next';
+
+import useTypewriter from '@/hooks/useTypewriter';
+
+import Card from './components/Card';
+
+import styles from './styles.module.scss';
+
+const About = () => {
+  const { t, i18n, ready } = useTranslation();
+  const [lines, setLines] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!ready) return;
+
+    const newLines = [
+      t('about.title1') || '',
+      t('about.title2') || '',
+      t('about.title3') || '',
+      t('about.title4') || '',
+    ];
+
+    setLines(newLines);
+  }, [t, i18n.language, ready]);
+
+  const { displayedLines } = useTypewriter(lines, 50);
+
+  return (
+    <section className={`${styles['about']} section`}>
+      <Card />
+      <div className={styles['about__description']}>
+        {displayedLines.map((line, index) => {
+          return (
+            <h1
+              key={index}
+              className={styles['about__description-title']}
+              dangerouslySetInnerHTML={{ __html: line }}
+            />
+          );
+        })}
+      </div>
+    </section>
+  );
+};
+
+export default About;

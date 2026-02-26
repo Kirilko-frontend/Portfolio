@@ -1,5 +1,10 @@
 .header {
+  width: 100%;
+}
+
+.header__container {
   @include flex-space-between();
+  padding: 0 10rem;
 }
 
 .header__logo-wrapper {

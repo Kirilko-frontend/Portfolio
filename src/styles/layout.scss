@@ -1,16 +1,16 @@
 .container {
-  max-width: var(--container-width);
+  max-width: 120rem;
   margin: 0 auto;
-  padding: var(--container-padding);
+  padding: 0 4rem;
 }
 
 .section {
-  padding: 2rem 13rem;
+  padding: 2rem;
 }
 
 .wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--container-padding);
+  gap: 0 4rem;
 }
