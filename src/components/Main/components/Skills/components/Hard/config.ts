@@ -2,13 +2,13 @@ const skills = {
   grid: {
     columns: 6,
     rows: 5,
-    gap: 2,
   },
+
   blocks: [
     {
-      // div1
+      id: 1,
       grid: { column: 'span 3', row: 'span 2', columnStart: 1, rowStart: 1 },
-      itemsGrid: { column: 'span 1', row: 'span 1', gap: 2 },
+      itemsGrid: { columns: 3, rows: 2 },
       items: [
         { title: 'HTML' },
         { title: 'JavaScript' },
@@ -19,51 +19,59 @@ const skills = {
       ],
     },
     {
-      // div2
+      id: 2,
       grid: { column: 'span 3', row: 'span 2', columnStart: 4, rowStart: 1 },
-      itemsGrid: { column: 'span 1', row: 'span 1', gap: 2 },
+      itemsGrid: { columns: 3, rows: 2 },
       items: [
         { title: 'CSS' },
         { title: 'SCSS' },
         { title: 'Tailwind' },
         { title: 'Bootstrap' },
         { title: 'BEM' },
+        { title: 'CSS Modules' },
       ],
     },
     {
-      // div3
+      id: 3,
       grid: { column: 'span 3', row: 'span 2', columnStart: 1, rowStart: 3 },
-      itemsGrid: { column: 'span 1', row: 'span 1', gap: 2 },
+      itemsGrid: { columns: 3, rows: 2 },
       items: [
         { title: 'Node.js' },
         { title: 'Express' },
         { title: 'MongoDB' },
         { title: 'REST API' },
         { title: 'WebSocket' },
+        { title: 'JWT Auth' },
       ],
     },
     {
-      // div4
+      id: 4,
       grid: { column: 'span 3', row: 'span 2', columnStart: 4, rowStart: 3 },
-      itemsGrid: { column: 'span 1', row: 'span 1', gap: 2 },
+      itemsGrid: { columns: 3, rows: 2 },
       items: [
         { title: 'React Router' },
         { title: 'React Hook Form' },
+        { title: 'React Context' },
         { title: 'Axios' },
         { title: 'Formik' },
         { title: 'Yup' },
       ],
     },
     {
-      // div5
+      id: 5,
       grid: { column: 'span 6', row: 'span 1', columnStart: 1, rowStart: 5 },
-      itemsGrid: { column: 'span 1', row: 'span 1', gap: 2 },
+      itemsGrid: { columns: 10, rows: 1 },
       items: [
         { title: 'Git' },
+        { title: 'GitHub' },
         { title: 'Vite' },
         { title: 'Figma' },
         { title: 'VS Code' },
         { title: 'Cursor' },
+        { title: 'npm' },
+        { title: 'Postman' },
+        { title: 'Chrome DevTools' },
+        { title: 'CLI / Terminal' },
       ],
     },
   ],

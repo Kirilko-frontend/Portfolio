@@ -16,3 +16,9 @@
   filter: blur(0.2rem);
   color: rgba(var(--color-accent), 0.5);
 }
+
+.glass-effect {
+  background-color: rgb(var(--color-glass));
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
