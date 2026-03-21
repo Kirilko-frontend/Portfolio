@@ -6,6 +6,11 @@
 }
 
 // Flex колонка
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin flex-column-center() {
   display: flex;
   flex-direction: column;
@@ -23,8 +28,14 @@
 @mixin flex-column-between() {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+}
+
+@mixin flex-column-between-center() {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // Flex с промежутком между элементами

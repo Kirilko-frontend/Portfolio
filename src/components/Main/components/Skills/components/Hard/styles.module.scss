@@ -1,6 +1,6 @@
 .hard {
-  @include flex-column-start;
-  gap: 2rem;
+  @include flex-column-between;
+  min-height: 45rem;
 }
 
 .hard__title {
