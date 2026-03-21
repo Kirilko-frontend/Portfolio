@@ -21,18 +21,16 @@ const Soft = () => {
             key={skill.title}
             className={styles['skill']}
             style={{
-              gridColumn: skill.grid?.colSpan
-                ? `${skill.grid.col} / span ${skill.grid.colSpan}`
-                : skill.grid?.col,
+              gridColumn: skill.grid?.col,
               gridRow: skill.grid?.row,
             }}
           >
-            <h3 className={styles['skill__title']}>{skill.title}</h3>
+            <h3 className={styles['skill__title']}>{t(skill.title)}</h3>
 
             <ul className={styles['skill__points']}>
               {skill.points.map((point) => (
                 <li key={point} className={styles['skill__point']}>
-                  {point}
+                  {t(point)}
                 </li>
               ))}
             </ul>

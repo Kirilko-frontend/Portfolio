@@ -22,6 +22,32 @@
   },
   "skills": {
     "hard-title": "Hard Skills",
-    "soft-title": "Soft Skills"
+    "soft-title": "Soft Skills",
+    "soft-skills": {
+      "communication": "Communication",
+      "communication-description-1": "Explain technical concepts clearly to teammates",
+      "communication-description-2": "Ask clarifying questions to avoid misunderstandings",
+      "communication-description-3": "Present information in structured and concise way",
+      "problem-solving": "Problem Solving",
+      "problem-solving-description-1": "Decompose tasks into manageable steps",
+      "problem-solving-description-2": "Investigate and test solutions independently",
+      "problem-solving-description-3": "Debug systematically using logs and devtools",
+      "work-approach": "Work Approach",
+      "work-approach-description-1": "Write clean, maintainable, and readable code",
+      "work-approach-description-2": "Focus on understanding problems before implementing solutions",
+      "work-approach-description-3": "Refactor code to improve clarity and performance",
+      "learning": "Learning",
+      "learning-description-1": "Quickly adapt to new technologies and frameworks",
+      "learning-description-2": "Leverage official documentation as primary learning resource",
+      "learning-description-3": "Practice consistently to reinforce skills",
+      "teamwork": "Teamwork",
+      "teamwork-description-1": "Accept and apply constructive feedback",
+      "teamwork-description-2": "Collaborate respectfully with team decisions",
+      "teamwork-description-3": "Share knowledge and help teammates improve",
+      "responsibility": "Responsibility",
+      "responsibility-description-1": "Deliver tasks on time and reliably",
+      "responsibility-description-2": "Proactively communicate blockers or issues",
+      "responsibility-description-3": "Take ownership and accountability for tasks"
+    }
   }
 }

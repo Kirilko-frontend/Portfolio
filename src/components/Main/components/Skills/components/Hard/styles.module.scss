@@ -1,6 +1,7 @@
 .hard {
   @include flex-column-between;
   min-height: 45rem;
+  min-width: 53rem;
 }
 
 .hard__title {

@@ -18,5 +18,33 @@
     "focus": "Область интересов: UI/UX, Responsive Design, Анимации и переходы, Оптимизация производительности",
     "favorite-tech": "Любимая технология: React",
     "fun-fact": "Факт: Обожаю pixel-perfect дизайн"
+  },
+  "skills": {
+    "soft-skills": {
+      "communication": "Коммуникация",
+      "communication-description-1": "Объяснять технические концепции коллегам понятно",
+      "communication-description-2": "Задавать уточняющие вопросы, чтобы избежать недопониманий",
+      "communication-description-3": "Представлять информацию структурировано и лаконично",
+      "problem-solving": "Решение проблем",
+      "problem-solving-description-1": "Разбивать задачи на управляемые части",
+      "problem-solving-description-2": "Самостоятельно исследовать и тестировать решения",
+      "problem-solving-description-3": "Системно отлаживать с помощью логов и инструментов разработчика",
+      "work-approach": "Подход к работе",
+      "work-approach-description-1": "Писать чистый, поддерживаемый и читаемый код",
+      "work-approach-description-2": "Сначала понимать проблему перед реализацией решения",
+      "work-approach-description-3": "Рефакторить код для улучшения читаемости и производительности",
+      "learning": "Обучаемость",
+      "learning-description-1": "Быстро осваивать новые технологии и фреймворки",
+      "learning-description-2": "Использовать официальную документацию как основной источник знаний",
+      "learning-description-3": "Практиковаться регулярно для закрепления навыков",
+      "teamwork": "Командная работа",
+      "teamwork-description-1": "Принимать и применять конструктивную обратную связь",
+      "teamwork-description-2": "Сотрудничать уважительно с командой и следовать решениям команды",
+      "teamwork-description-3": "Делиться знаниями и помогать коллегам развиваться",
+      "responsibility": "Ответственность",
+      "responsibility-description-1": "Выполнять задачи вовремя и надежно",
+      "responsibility-description-2": "Проактивно сообщать о блокерах или проблемах",
+      "responsibility-description-3": "Брать на себя ответственность за выполнение задач"
+    }
   }
 }

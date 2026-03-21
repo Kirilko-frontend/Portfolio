@@ -18,5 +18,33 @@
     "focus": "Obszar zainteresowań: UI/UX, Responsive Design, Animations & Transitions, Performance Optimization",
     "favorite-tech": "Ulubiona technologia: React",
     "fun-fact": "Ciekawostka: Uwielbia pixel-perfect design"
+  },
+  "skills": {
+    "soft-skills": {
+      "communication": "Komunikacja",
+      "communication-description-1": "Wyjaśniać kolegom koncepcje techniczne w sposób zrozumiały",
+      "communication-description-2": "Zadawać pytania wyjaśniające, aby uniknąć nieporozumień",
+      "communication-description-3": "Przedstawiać informacje w sposób uporządkowany i zwięzły",
+      "problem-solving": "Rozwiązywanie problemów",
+      "problem-solving-description-1": "Dzielić zadania na mniejsze, łatwe do zarządzania części",
+      "problem-solving-description-2": "Samodzielnie badać i testować rozwiązania",
+      "problem-solving-description-3": "Systematycznie debugować przy użyciu logów i narzędzi deweloperskich",
+      "work-approach": "Podejście do pracy",
+      "work-approach-description-1": "Pisać czysty, czytelny i łatwy w utrzymaniu kod",
+      "work-approach-description-2": "Najpierw rozumieć problem przed implementacją rozwiązania",
+      "work-approach-description-3": "Refaktoryzować kod w celu poprawy czytelności i wydajności",
+      "learning": "Uczenie się",
+      "learning-description-1": "Szybko przyswajać nowe technologie i frameworki",
+      "learning-description-2": "Korzystać z dokumentacji oficjalnej jako głównego źródła wiedzy",
+      "learning-description-3": "Regularnie ćwiczyć, aby utrwalać umiejętności",
+      "teamwork": "Praca zespołowa",
+      "teamwork-description-1": "Przyjmować i stosować konstruktywną opinię zwrotną",
+      "teamwork-description-2": "Współpracować z szacunkiem i przestrzegać decyzji zespołu",
+      "teamwork-description-3": "Dzielić się wiedzą i pomagać kolegom w rozwoju",
+      "responsibility": "Odpowiedzialność",
+      "responsibility-description-1": "Wykonywać zadania terminowo i niezawodnie",
+      "responsibility-description-2": "Proaktywnie zgłaszać blokady lub problemy",
+      "responsibility-description-3": "Brać odpowiedzialność za realizację zadań"
+    }
   }
 }
