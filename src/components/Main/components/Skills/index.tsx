@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 const Skills = () => {
   return (
-    <section className={`${styles['skills']} section`}>
+    <section id="skills" className={`${styles['skills']} section`}>
       <Hard />
       <Soft />
     </section>
