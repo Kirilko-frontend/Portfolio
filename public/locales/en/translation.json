@@ -19,5 +19,8 @@
     "focus": "Focus : UI/UX, Responsive Design, Animations & Transitions, Performance Optimization",
     "favorite-tech": "Favorite tech : React",
     "fun-fact": "Fun fact : Loves pixel-perfect design"
+  },
+  "skills": {
+    "hard-title": "Hard Skills"
   }
 }

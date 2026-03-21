@@ -4,64 +4,11 @@
 }
 
 .hard__title {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  line-height: 1.2;
+  @include font(600, 3rem, 1.2);
   color: rgb(var(--color-white));
 }
-.hard__blocks {
-  display: grid;
+
+.hard__skills {
+  @include flex-column-start;
   gap: 2rem;
-}
-
-.hard__block {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.hard__skill {
-  @include flex-center;
-  min-width: 6rem;
-  height: 4rem;
-  border: 0.1rem solid rgb(var(--color-white));
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: var(--font-size-base);
-  font-weight: 400;
-  line-height: 1.2;
-  color: rgb(var(--color-white));
-  text-align: center;
-  text-transform: uppercase;
-
-  position: relative;
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease,
-    background-color 0.3s ease;
-
-  &:hover {
-    transform: translateY(-0.4rem);
-    color: rgb(var(--color-accent));
-    background-color: rgb(var(--color-black));
-  }
-
-  &::after {
-    content: '🔥';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    font-size: 1.2rem;
-  }
-
-  &:hover::after {
-    opacity: 1;
-  }
-
-  &:hover span {
-    opacity: 0;
-  }
 }

@@ -1,0 +1,43 @@
+.skill {
+  @include flex-column-start;
+  gap: 0.5rem;
+}
+
+.skill__title {
+  @include font(600, 2rem, 1.2);
+  color: rgb(var(--color-white));
+}
+
+.group {
+  @include flex-center;
+  gap: 1rem;
+}
+
+.group__title {
+  @include font(600, 1.5rem, 1.2);
+  color: rgb(var(--color-white));
+}
+
+.group__items {
+  @include flex-center;
+  gap: 0.5rem;
+}
+
+.tag {
+  @include font(400, 1rem, 1.2);
+  color: rgb(var(--color-white));
+  padding: 0.3rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(var(--color-black));
+  border: 0.1rem solid rgb(var(--color-white));
+}
+
+.tag {
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 1.2rem rgba(255, 255, 255, 0.8);
+    transform: translateY(-0.2rem);
+    color: rgb(var(--color-accent));
+  }
+}
