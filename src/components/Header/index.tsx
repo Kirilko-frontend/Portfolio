@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import config from './config';
 import { useLanguage } from '../../hooks/useLanguage';
+import { scrollTo } from '../../utils/scrollTo';
 
 import { Logo } from '@icons';
 import Button from '../../ui/Button';
@@ -36,7 +37,14 @@ const Header = () => {
           <ul className={styles['header__nav-list']}>
             {config.navItems.map((item) => (
               <li key={item.id} className={styles['header__nav-item']}>
-                <a href={item.href} className={styles['header__nav-link']}>
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollTo(item.href);
+                  }}
+                  className={styles['header__nav-link']}
+                >
                   {t(item.name)}
                 </a>
               </li>
