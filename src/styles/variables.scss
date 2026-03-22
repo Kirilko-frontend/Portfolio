@@ -1,41 +1,46 @@
 $theme: (
   color-bg: (
-    50,
-    49,
-    61,
+    18,
+    18,
+    24,
   ),
   color-white: (
-    229,
-    229,
-    229,
+    230,
+    230,
+    235,
   ),
   color-accent: (
-    123,
-    242,
-    101,
+    139,
+    92,
+    246,
   ),
+  // фиолетовый
+  color-accent-light: (
+      167,
+      139,
+      250,
+    ),
   color-black: (
     0,
     0,
     0,
   ),
   color-black-light: (
-    24,
-    24,
-    24,
+    30,
+    30,
+    40,
   ),
   color-red: (
     255,
-    0,
-    0,
+    80,
+    80,
   ),
   color-glass: (
     255,
     255,
     255,
-    0.1,
+    0.08,
   ),
-
   font-family: (
     'Oswald',
     sans-serif,
