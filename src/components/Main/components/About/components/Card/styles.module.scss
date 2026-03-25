@@ -9,9 +9,9 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.8s ease-in-out;
 
-  &:hover {
+  &.card--flipped {
     transform: rotateY(180deg);
   }
 }
@@ -27,24 +27,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.card__back {
+  transform: rotateY(180deg);
 }
 
 .card__front {
   @include flex-space-between;
   padding: 2rem;
   background-color: rgb(var(--color-white));
-}
-
-.card__back {
-  background-color: rgb(var(--color-white));
-  transform: rotateY(180deg);
-}
-
-.card__back-text {
-  font-size: 4rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: rgb(var(--color-black));
 }
 
 .card__avatar-icon-pushpin {
@@ -109,4 +102,63 @@
   color: rgb(var(--color-black));
   padding-bottom: 0.2rem;
   border-bottom: 0.1rem solid rgb(var(--color-black));
+}
+
+.card__front-button {
+  @include font(400, 1rem, 1.2);
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+}
+
+.card__back {
+  @include flex-column-center;
+  gap: 3rem;
+  position: relative;
+  background-color: rgb(var(--color-white));
+  transform: rotateY(180deg);
+  z-index: 6;
+}
+
+.card__back-wrapper {
+  @include flex-column-center;
+  gap: 3rem;
+}
+
+.card__back-title {
+  @include font(700, 2.5rem, 1.2);
+  color: rgb(var(--color-black));
+}
+
+.card__back-text {
+  @include font(400, 1.5rem, 1.2);
+  color: rgb(var(--color-black));
+}
+
+.card__back-links {
+  position: relative;
+  @include flex-center;
+  gap: 2rem;
+}
+
+.card__back-link-icon {
+  display: block;
+  @include square(2rem);
+  fill: rgb(var(--color-black));
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.card__back-monkey {
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.card__back-button {
+  @include font(400, 1rem, 1.2);
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
 }

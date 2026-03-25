@@ -17,7 +17,10 @@
     "experience": "Doświadczenie: 2 lata",
     "focus": "Obszar zainteresowań: UI/UX, Responsive Design, Animations & Transitions, Performance Optimization",
     "favorite-tech": "Ulubiona technologia: React",
-    "fun-fact": "Ciekawostka: Uwielbia pixel-perfect design"
+    "fun-fact": "Ciekawostka: Uwielbia pixel-perfect design",
+    "card-back-title": "ID karty frontend",
+    "card-back-text": "Moje media społecznościowe i informacje kontaktowe",
+    "card-button": "Odwróć kartę"
   },
   "skills": {
     "hard-title": "Umiejętności twarde",

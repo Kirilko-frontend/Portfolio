@@ -17,7 +17,10 @@
     "experience": "Досвід роботи: 2 роки",
     "focus": "Сфера інтересів: UI/UX, Responsive Design, Анімації та переходи, Оптимізація продуктивності",
     "favorite-tech": "Улюблена технологія: React",
-    "fun-fact": "Факт: Любить pixel-perfect дизайн"
+    "fun-fact": "Факт: Любить pixel-perfect дизайн",
+    "card-back-title": "ID фронтенд-картки",
+    "card-back-text": "Мої соціальні мережі та контактна інформація",
+    "card-button": "Перевернути картку"
   },
   "skills": {
     "hard-title": "Професійні навички",

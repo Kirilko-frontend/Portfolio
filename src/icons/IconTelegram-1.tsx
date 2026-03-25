@@ -1,0 +1,26 @@
+import type { IconProps } from '@/types/icons';
+
+const IconTelegram1 = (props: IconProps) => {
+  const { className } = props;
+  return (
+    <svg className={className} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_2044_58)">
+        <path
+          d="M256 512C397.385 512 512 397.385 512 256C512 114.615 397.385 0 256 0C114.615 0 0 114.615 0 256C0 397.385 114.615 512 256 512Z"
+          fill="#039BE5"
+        />
+        <path
+          d="M117.141 250.453L363.968 155.285C375.424 151.147 385.429 158.08 381.717 175.403L381.738 175.381L339.712 373.376C336.597 387.413 328.256 390.827 316.586 384.213L252.586 337.045L221.717 366.784C218.304 370.197 215.424 373.077 208.81 373.077L213.354 307.947L331.968 200.789C337.13 196.245 330.816 193.685 324.01 198.208L177.429 290.496L114.24 270.784C100.522 266.432 100.224 257.067 117.141 250.453Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_2044_58">
+          <rect width="512" height="512" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default IconTelegram1;

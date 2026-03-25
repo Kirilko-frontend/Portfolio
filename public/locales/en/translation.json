@@ -18,7 +18,10 @@
     "experience": "Experience : 2 years",
     "focus": "Focus : UI/UX, Responsive Design, Animations & Transitions, Performance Optimization",
     "favorite-tech": "Favorite tech : React",
-    "fun-fact": "Fun fact : Loves pixel-perfect design"
+    "fun-fact": "Fun fact : Loves pixel-perfect design",
+    "card-back-title": "Frontend card ID",
+    "card-back-text": "My social media and contact information",
+    "card-button": "Flip card"
   },
   "skills": {
     "hard-title": "Hard Skills",
