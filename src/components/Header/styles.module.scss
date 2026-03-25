@@ -49,6 +49,26 @@
   background-color: rgba(var(--color-white), 0.4);
 }
 
+.header__nav-list {
+  @include flex-center();
+  gap: 3rem;
+}
+
+.header__nav-link {
+  @include font(500, var(--font-size-lg), 1.2);
+  color: rgb(var(--color-white));
+  transition: color 0.3s ease;
+}
+
+.header__nav-link:hover {
+  color: rgb(var(--color-accent));
+}
+
+.header__language-switcher {
+  @include flex-center();
+  gap: 1rem;
+}
+
 @keyframes flip {
   0% {
     transform: rotateY(0deg);
@@ -73,24 +93,4 @@
   100% {
     transform: rotateY(0deg);
   }
-}
-
-.header__nav-list {
-  @include flex-center();
-  gap: 3rem;
-}
-
-.header__nav-link {
-  @include font(500, var(--font-size-lg), 1.2);
-  color: rgb(var(--color-white));
-  transition: color 0.3s ease;
-}
-
-.header__nav-link:hover {
-  color: rgb(var(--color-accent));
-}
-
-.header__language-switcher {
-  @include flex-center();
-  gap: 1rem;
 }
