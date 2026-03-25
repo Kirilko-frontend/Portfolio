@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 const Portfolio = () => {
   const { t } = useTranslation();
   return (
-    <section className={`${styles['portfolio']} section`}>
+    <section className={`${styles['portfolio']} section`} id="portfolio">
       <h1 className={styles['portfolio__title']}>{t('portfolio.title')}</h1>
       <div className={styles['portfolio__line']} />
       <div className={styles['portfolio__projects']}>
