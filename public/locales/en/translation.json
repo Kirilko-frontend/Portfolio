@@ -54,6 +54,9 @@
     "title": "Portfolio",
     "project1-description": "Car rental website with pagination and filters; tech stack: Vite, TypeScript, React, Tailwind CSS, Redux Toolkit, React Router, Axios, REST API",
     "project2-description": "Responsive portfolio website developed collaboratively with a team; tech stack: HTML, CSS, JavaScript, Swiper.js library",
-    "project3-description": "Responsive website using SCSS variables and mixins for layout; tech stack: HTML, SCSS, JavaScript"
+    "project3-description": "Responsive website using SCSS variables and mixins for layout; tech stack: HTML, SCSS, JavaScript",
+    "date1": "September 2025",
+    "date2": "July 2025",
+    "date3": "October 2025"
   }
 }

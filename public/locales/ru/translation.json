@@ -20,6 +20,8 @@
     "fun-fact": "Факт: Обожаю pixel-perfect дизайн"
   },
   "skills": {
+    "hard-title": "Профессиональные навыки",
+    "soft-title": "Личные качества",
     "soft-skills": {
       "communication": "Коммуникация",
       "communication-description-1": "Объяснять технические концепции коллегам понятно",
@@ -51,6 +53,9 @@
     "title": "Портфолио",
     "project1-description": "Сайт аренды автомобилей с пагинацией и фильтрами; стек технологий: Vite, TypeScript, React, Tailwind CSS, Redux Toolkit, React Router, Axios, REST API",
     "project2-description": "Адаптивный сайт портфолио, созданный в команде разработчиков; стек технологий: HTML, CSS, JavaScript, библиотека Swiper.js",
-    "project3-description": "Адаптивный сайт с использованием переменных и миксинов SCSS для верстки; стек технологий: HTML, SCSS, JavaScript"
+    "project3-description": "Адаптивный сайт с использованием переменных и миксинов SCSS для верстки; стек технологий: HTML, SCSS, JavaScript",
+    "date1": "Сентябрь 2025",
+    "date2": "Июль 2025",
+    "date3": "Октябрь 2025"
   }
 }

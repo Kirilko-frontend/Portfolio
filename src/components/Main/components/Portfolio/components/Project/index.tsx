@@ -53,7 +53,7 @@ const Project = (props: IProps) => {
       <div className={styles['project__wrappper']}>
         <h1 className={styles['project__title']}>{title}</h1>
         <p className={styles['project__description']}>{t(`portfolio.project${id}-description`)}</p>
-        <p className={styles['project__date']}>{date}</p>
+        <p className={styles['project__date']}>{t(date)}</p>
         <div className={styles['project__links']}>
           <a
             className={styles['project__link']}

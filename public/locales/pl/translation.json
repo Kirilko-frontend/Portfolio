@@ -20,6 +20,8 @@
     "fun-fact": "Ciekawostka: Uwielbia pixel-perfect design"
   },
   "skills": {
+    "hard-title": "Umiejętności twarde",
+    "soft-title": "Umiejętności miękkie",
     "soft-skills": {
       "communication": "Komunikacja",
       "communication-description-1": "Wyjaśniać kolegom koncepcje techniczne w sposób zrozumiały",
@@ -51,6 +53,9 @@
     "title": "Portfolio",
     "project1-description": "Strona wypożyczalni samochodów z paginacją i filtrami; stos technologii: Vite, TypeScript, React, Tailwind CSS, Redux Toolkit, React Router, Axios, REST API",
     "project2-description": "Responsywna strona portfolio stworzona we współpracy z zespołem deweloperów; stos technologii: HTML, CSS, JavaScript, biblioteka Swiper.js",
-    "project3-description": "Responsywna strona z użyciem zmiennych i mixinów SCSS do layoutu; stos technologii: HTML, SCSS, JavaScript"
+    "project3-description": "Responsywna strona z użyciem zmiennych i mixinów SCSS do layoutu; stos technologii: HTML, SCSS, JavaScript",
+    "date1": "Wrzesień 2025",
+    "date2": "Lipiec 2025",
+    "date3": "Październik 2025"
   }
 }
