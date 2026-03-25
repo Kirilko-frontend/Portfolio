@@ -14,6 +14,8 @@ import IconBootstrap1 from './skills/IconBootstrap-1';
 import IconBem1 from './skills/IconBem-1';
 import IconDices1 from './skills/IconDices-1';
 import IconNodeJs1 from './skills/IconNodeJs-1';
+import IconGitHub1 from './IconGitHub-1';
+import IconLink1 from './IconLink-1';
 
 export {
   Logo,
@@ -32,4 +34,6 @@ export {
   IconBem1,
   IconDices1,
   IconNodeJs1,
+  IconGitHub1,
+  IconLink1,
 };

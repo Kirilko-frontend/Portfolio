@@ -1,0 +1,23 @@
+.portfolio {
+  position: relative;
+}
+
+.portfolio__title {
+  @include font(600, 3rem, 1.2);
+  color: rgb(var(--color-white));
+}
+
+.portfolio__line {
+  @include absolute-center;
+  width: 0.8rem;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: rgb(var(--color-accent));
+  box-shadow: 0 0 1rem 0 rgba(var(--color-accent), 2);
+}
+
+.portfolio__projects {
+  @include flex-column;
+  gap: 2rem;
+  margin-top: 3rem;
+}

@@ -46,5 +46,11 @@
       "responsibility-description-2": "Проактивно повідомляти про блокери або проблеми",
       "responsibility-description-3": "Брати на себе відповідальність за виконання завдань"
     }
+  },
+  "portfolio": {
+    "title": "Портфоліо",
+    "project1-description": "Сайт оренди автомобілів з пагінацією та фільтрами; стек технологій: Vite, TypeScript, React, Tailwind CSS, Redux Toolkit, React Router, Axios, REST API",
+    "project2-description": "Адаптивний сайт портфоліо, створений у команді розробників; стек технологій: HTML, CSS, JavaScript, бібліотека Swiper.js",
+    "project3-description": "Адаптивний сайт з використанням змінних та міксинів SCSS для верстки; стек технологій: HTML, SCSS, JavaScript"
   }
 }

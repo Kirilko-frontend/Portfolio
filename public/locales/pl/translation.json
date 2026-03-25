@@ -46,5 +46,11 @@
       "responsibility-description-2": "Proaktywnie zgłaszać blokady lub problemy",
       "responsibility-description-3": "Brać odpowiedzialność za realizację zadań"
     }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "project1-description": "Strona wypożyczalni samochodów z paginacją i filtrami; stos technologii: Vite, TypeScript, React, Tailwind CSS, Redux Toolkit, React Router, Axios, REST API",
+    "project2-description": "Responsywna strona portfolio stworzona we współpracy z zespołem deweloperów; stos technologii: HTML, CSS, JavaScript, biblioteka Swiper.js",
+    "project3-description": "Responsywna strona z użyciem zmiennych i mixinów SCSS do layoutu; stos technologii: HTML, SCSS, JavaScript"
   }
 }
