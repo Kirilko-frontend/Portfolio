@@ -1,6 +1,7 @@
 import About from './components/About';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
+import Experience from './components/Experience';
 
 import styles from './styles.module.scss';
 
@@ -10,6 +11,7 @@ const Main = () => {
       <About />
       <Skills />
       <Portfolio />
+      <Experience />
     </main>
   );
 };
