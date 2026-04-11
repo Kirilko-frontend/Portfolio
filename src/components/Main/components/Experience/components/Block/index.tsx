@@ -15,9 +15,11 @@ const Block = (props: IProps) => {
   const { t } = useTranslation();
   return (
     <div key={id} className={styles['block']}>
-      <p className={styles['block__role']}>{t(role)}</p>
+      <div className={styles['block__period-wrapper']}>
+        <p className={styles['block__period']}>{t(period)}</p>
+      </div>
       <p className={styles['block__company']}>{t(company)}</p>
-      <p className={styles['block__period']}>{t(period)}</p>
+      <p className={styles['block__role']}>{t(role)}</p>
       <ul className={styles['block__description']}>
         {description.map((item) => (
           <li key={item} className={styles['block__description-item']}>

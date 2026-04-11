@@ -12,8 +12,6 @@ const experienceBlocks = [
       'experience.item1-description5',
       'experience.item1-description6',
       'experience.item1-description7',
-      'experience.item1-description8',
-      'experience.item1-description9',
     ],
   },
   {
@@ -27,7 +25,6 @@ const experienceBlocks = [
       'experience.item2-description3',
       'experience.item2-description4',
       'experience.item2-description5',
-      'experience.item2-description6',
     ],
   },
   {
@@ -41,8 +38,6 @@ const experienceBlocks = [
       'experience.item3-description3',
       'experience.item3-description4',
       'experience.item3-description5',
-      'experience.item3-description6',
-      'experience.item3-description7',
     ],
   },
 ];

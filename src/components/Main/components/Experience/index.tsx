@@ -9,7 +9,7 @@ const Experience = () => {
   return (
     <section className={`${styles['experience']} section`}>
       <h2 className={styles['experience__title']}>{t('experience.title')}</h2>
-      <div>
+      <div className={styles['experience__blocks']}>
         {config.experienceBlocks.map((item) => (
           <Block
             key={item.id}
