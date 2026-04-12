@@ -17,6 +17,7 @@ const Experience = () => {
             role={item.role}
             company={item.company}
             period={item.period}
+            stack={item.stack}
             description={item.description}
           />
         ))}

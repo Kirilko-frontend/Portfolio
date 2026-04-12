@@ -65,8 +65,9 @@
     "title": "Doświadczenie",
 
     "role1": "Frontend Developer",
-    "company1": "Projekt gamingowy (GTA)",
+    "company1": "Gaming Project (GTA)",
     "period1": "Wrzesień 2025 – Styczeń 2026",
+    "stack1": "Tech stack : SolidJS, TypeScript, SCSS, WebSocket, Solid Router",
     "item1-description1": "Tworzyłem interfejsy UI na podstawie makiet (menu, HUD, formularze)",
     "item1-description2": "Implementowałem logikę interakcji użytkownika",
     "item1-description3": "Budowałem reużywalne komponenty i strukturę UI",
@@ -76,8 +77,9 @@
     "item1-description7": "Dostosowywanie UI do wymagań klienta",
 
     "role2": "Frontend Developer",
-    "company2": "Projekty prywatne",
+    "company2": "Freelance / Private Projects",
     "period2": "Wrzesień 2025 – Grudzień 2025",
+    "stack2": "Tech stack : HTML, CSS, JavaScript, PHP",
     "item2-description1": "Tworzyłem responsywne strony (desktop i mobile)",
     "item2-description2": "Łączyłem komponenty w spójne interfejsy",
     "item2-description3": "Praca z UI/UX zgodnie z wymaganiami klienta",

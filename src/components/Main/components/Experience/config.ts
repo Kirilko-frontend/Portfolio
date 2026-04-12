@@ -1,9 +1,10 @@
 const experienceBlocks = [
   {
     id: 1,
-    role: 'Frontend Developer',
-    company: 'Game Project (GTA)',
-    period: '2025 September - 2026 January',
+    role: 'experience.role1',
+    company: 'experience.company1',
+    period: 'experience.period1',
+    stack: 'experience.stack1',
     description: [
       'experience.item1-description1',
       'experience.item1-description2',
@@ -16,9 +17,10 @@ const experienceBlocks = [
   },
   {
     id: 2,
-    role: 'Frontend Developer',
-    company: 'Private Project / Client Work',
-    period: '2025 September - 2025 December',
+    role: 'experience.role2',
+    company: 'experience.company2',
+    period: 'experience.period2',
+    stack: 'experience.stack2',
     description: [
       'experience.item2-description1',
       'experience.item2-description2',
@@ -29,9 +31,10 @@ const experienceBlocks = [
   },
   {
     id: 3,
-    role: 'Frontend Development Course',
-    company: 'Education',
-    period: '2024 September - 2025 September',
+    role: 'experience.role3',
+    company: 'experience.company3',
+    period: 'experience.period3',
+    stack: '',
     description: [
       'experience.item3-description1',
       'experience.item3-description2',
