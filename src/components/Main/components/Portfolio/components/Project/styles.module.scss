@@ -4,7 +4,7 @@
   position: relative;
   height: 23rem;
   width: 52rem;
-  background-color: rgba(var(--color-white), 0.1);
+  background-color: var(--bg-gray);
   border: 0.1rem solid rgba(var(--color-white), 0.1);
   border-radius: 1rem;
   padding: 1rem;
@@ -60,7 +60,7 @@
 }
 
 .project__link {
-  background-color: rgba(var(--color-white), 0.1);
+  background-color: var(--bg-gray);
   border-radius: 0.5rem;
   padding: 0.5rem;
 

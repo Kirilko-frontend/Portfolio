@@ -62,4 +62,8 @@ $theme: (
   transition: (
     0.3s ease,
   ),
+
+  bg-gray: (
+    rgba(var(--color-white), 0.1),
+  ),
 );
