@@ -8,7 +8,6 @@ const Soft = () => {
   const { t } = useTranslation();
   return (
     <div className={styles['soft']}>
-      <h1 className={styles['soft__title']}>{t('skills.soft-title')}</h1>
       <div
         className={styles['soft__items']}
         style={{

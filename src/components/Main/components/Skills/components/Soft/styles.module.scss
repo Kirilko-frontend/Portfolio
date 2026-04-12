@@ -1,8 +1,5 @@
 .soft {
-  @include flex-column;
-  gap: 4rem;
-  min-height: 45rem;
-  min-width: 50rem;
+  min-height: 44.5rem;
 }
 
 .soft__title {
@@ -20,10 +17,10 @@
   gap: 2rem;
   padding: 1.3rem;
   border-radius: 1.2rem;
+  height: 18.2rem;
   background-color: rgba(var(--color-white), 0.1);
   border: 0.1rem solid rgb(var(--color-white), 0.1);
   box-shadow: var(--box-shadow-white);
-  height: 19rem;
 
   transition: all var(--transition);
 
