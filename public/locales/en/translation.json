@@ -95,5 +95,8 @@
     "item3-description3": "Worked with APIs and backend integration",
     "item3-description4": "Learned basics of Node.js, Express, and MongoDB",
     "item3-description5": "Created a portfolio of projects"
+  },
+  "contact": {
+    "title": "Contact"
   }
 }

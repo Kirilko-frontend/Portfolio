@@ -94,5 +94,8 @@
     "item3-description3": "Integracja z API i backendem",
     "item3-description4": "Podstawy Node.js, Express i MongoDB",
     "item3-description5": "Stworzyłem portfolio projektów"
+  },
+  "contact": {
+    "title": "Kontakt"
   }
 }

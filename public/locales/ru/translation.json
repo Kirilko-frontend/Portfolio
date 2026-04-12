@@ -94,5 +94,8 @@
     "item3-description3": "Работал с API и интеграцией фронтенда с бэкендом",
     "item3-description4": "Изучил основы Node.js, Express и MongoDB",
     "item3-description5": "Собрал портфолио из учебных и pet-проектов"
+  },
+  "contact": {
+    "title": "Контакты"
   }
 }

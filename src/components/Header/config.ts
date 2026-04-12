@@ -17,7 +17,7 @@ const navItems = [
   {
     id: 4,
     name: 'header.nav-works-experience',
-    href: '#works-experience',
+    href: '#experience',
   },
   {
     id: 5,
