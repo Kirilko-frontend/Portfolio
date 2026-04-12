@@ -5,6 +5,7 @@ import { IconGitHub1, IconLink1 } from '@/icons';
 import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss';
+import { createPortal } from 'react-dom';
 
 interface IProps {
   id: number;
@@ -53,7 +54,9 @@ const Project = (props: IProps) => {
       <div className={styles['project__wrappper']}>
         <h1 className={styles['project__title']}>{title}</h1>
         <p className={styles['project__description']}>{t(`portfolio.project${id}-description`)}</p>
-        <p className={styles['project__date']}>{t(date)}</p>
+        <div className={styles['project__date-wrapper']}>
+          <p className={styles['project__date']}>{t(date)}</p>
+        </div>
         <div className={styles['project__links']}>
           <a
             className={styles['project__link']}
@@ -74,31 +77,32 @@ const Project = (props: IProps) => {
         </div>
       </div>
       <div className={styles['project__preview-wrapper']}>
-        <button onClick={handleClick}>
-          <video
-            className={styles['project__preview']}
-            src={preview}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        </button>
+        <video
+          onClick={handleClick}
+          className={styles['project__preview']}
+          src={preview}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
-      {clicked && (
-        <div className={styles['project__modal']} onClick={handleClose}>
-          <div className={styles['project__modal-wrapper']}>
-            <video
-              className={styles['project__modal-preview']}
-              src={preview}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
-        </div>
-      )}
+      {clicked &&
+        createPortal(
+          <div className={styles['project__modal']} onClick={handleClose}>
+            <div className={styles['project__modal-wrapper']} onClick={(e) => e.stopPropagation()}>
+              <video
+                className={styles['project__modal-preview']}
+                src={preview}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+          </div>,
+          document.getElementById('modal-root')!
+        )}
     </div>
   );
 };
