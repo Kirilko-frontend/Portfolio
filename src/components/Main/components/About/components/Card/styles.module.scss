@@ -9,7 +9,7 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform var(--transition);
+  transition: transform 1s ease;
 
   &.card--flipped {
     transform: rotateY(180deg);
