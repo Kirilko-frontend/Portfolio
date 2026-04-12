@@ -6,7 +6,7 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,7 @@
   &.primary {
     background-color: rgb(var(--color-white));
     color: rgb(var(--color-black));
-    transition: background-color 1s ease;
+    transition: background-color var(--transition);
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-accent));
     }
@@ -29,7 +29,7 @@
   &.secondary {
     background-color: rgb(var(--color-black-light));
     color: rgb(var(--color-white));
-    transition: background-color 1s ease;
+    transition: background-color var(--transition);
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-black));
     }
@@ -39,7 +39,7 @@
     background-color: transparent;
     color: rgb(var(--color-accent));
     border: 0.2rem solid rgb(var(--color-accent));
-    transition: background-color 1s ease;
+    transition: background-color var(--transition);
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-accent));
       color: rgb(var(--color-black));

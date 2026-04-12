@@ -33,10 +33,10 @@
 }
 
 .tag {
-  transition: all 0.3s ease;
+  transition: all var(--transition);
 
   &:hover {
-    box-shadow: 0 0 1.2rem rgb(var(--color-accent), 0.5);
-    transform: translateY(-0.2rem);
+    box-shadow: var(--box-shadow-accent);
+    transform: translateY(var(--translateY));
   }
 }

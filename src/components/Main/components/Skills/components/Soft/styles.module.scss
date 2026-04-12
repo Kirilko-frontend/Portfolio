@@ -22,14 +22,14 @@
   border-radius: 1.2rem;
   background-color: rgba(var(--color-white), 0.1);
   border: 0.1rem solid rgb(var(--color-white), 0.1);
-  box-shadow: 0 0 2rem rgb(var(--color-white), 0.1);
+  box-shadow: var(--box-shadow-white);
   height: 19rem;
 
-  transition: 0.3s;
+  transition: all var(--transition);
 
   &:hover {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0 2rem rgb(var(--color-accent), 0.5);
+    transform: translateY(var(--translateY));
+    box-shadow: var(--box-shadow-accent);
   }
 }
 

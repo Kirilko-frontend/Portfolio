@@ -14,12 +14,11 @@ $theme: (
     92,
     246,
   ),
-  // фиолетовый
   color-accent-light: (
-      167,
-      139,
-      250,
-    ),
+    167,
+    139,
+    250,
+  ),
   color-black: (
     0,
     0,
@@ -48,4 +47,19 @@ $theme: (
   font-size-base: 1rem,
   font-size-lg: 1.5rem,
   font-size-xl: 3rem,
+
+  box-shadow-white: (
+    0 0 1rem 0 rgb(var(--color-white), 0.1),
+  ),
+  box-shadow-accent: (
+    0 0 1rem 0 rgb(var(--color-accent), 0.5),
+  ),
+
+  translateY: (
+    -0.2rem,
+  ),
+
+  transition: (
+    0.3s ease,
+  ),
 );
