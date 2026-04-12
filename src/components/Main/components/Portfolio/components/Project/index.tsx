@@ -1,11 +1,11 @@
+import { createPortal } from 'react-dom';
 import { useEffect, useState } from 'react';
 
-import { IconGitHub1, IconLink1 } from '@/icons';
+import { IconCross1, IconGitHub1, IconLink1 } from '@/icons';
 
 import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss';
-import { createPortal } from 'react-dom';
 
 interface IProps {
   id: number;
@@ -33,6 +33,16 @@ const Project = (props: IProps) => {
   };
 
   useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setClicked(false);
+      }
+    };
+
+    if (clicked) {
+      window.addEventListener('keydown', handleKey);
+    }
+
     if (clicked) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -41,6 +51,7 @@ const Project = (props: IProps) => {
 
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
     };
   }, [clicked]);
 
@@ -90,6 +101,9 @@ const Project = (props: IProps) => {
       {clicked &&
         createPortal(
           <div className={styles['project__modal']} onClick={handleClose}>
+            <button className={styles['project__close--btn']} onClick={handleClose}>
+              <IconCross1 className={styles['project__close--icon']} />
+            </button>
             <div className={styles['project__modal-wrapper']} onClick={(e) => e.stopPropagation()}>
               <video
                 className={styles['project__modal-preview']}
