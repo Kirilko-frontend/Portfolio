@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 const Skills = () => {
   const { t } = useTranslation();
   return (
-    <section id="skills" className={`${styles['skills']} section`}>
+    <section id="skills" className={`${styles['skills']} section reveal`}>
       <div className={styles['skills__content']}>
         <div className={styles['skills__column']}>
           <h1 className={styles['skill__title']}>{t('skills.hard-title')}</h1>

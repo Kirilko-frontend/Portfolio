@@ -28,7 +28,7 @@ const About = () => {
   const { displayedLines } = useTypewriter(lines, 50);
 
   return (
-    <section id="about" className={`${styles['about']} section`}>
+    <section id="about" className={`${styles['about']} section reveal`}>
       <Card />
       <div className={styles['about__description']}>
         {displayedLines.map((line, index) => {

@@ -7,7 +7,7 @@ import Block from './components/Block';
 const Experience = () => {
   const { t } = useTranslation();
   return (
-    <section id="experience" className={`${styles['experience']} section`}>
+    <section id="experience" className={`${styles['experience']} section reveal`}>
       <h2 className={styles['experience__title']}>{t('experience.title')}</h2>
       <div className={styles['experience__blocks']}>
         {config.experienceBlocks.map((item) => (

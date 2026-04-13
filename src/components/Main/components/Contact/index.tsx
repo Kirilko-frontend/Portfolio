@@ -10,7 +10,7 @@ const Contact = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className={`${styles['contact']} section`}>
+    <section id="contact" className={`${styles['contact']} section reveal`}>
       <h2 className={styles['contact__title']}>{t('contact.title')}</h2>
       <div className={styles['contact__terminal-wrapper']}>
         <Terminal lines={config.lines} methods={config.methods} />
