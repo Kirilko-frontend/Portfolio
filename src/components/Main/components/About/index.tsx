@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import useReveal from '@/hooks/useReveal';
 import useTypewriter from '@/hooks/useTypewriter';
 
 import Card from './components/Card';
@@ -10,6 +11,7 @@ import styles from './styles.module.scss';
 
 const About = () => {
   const { t, i18n, ready } = useTranslation();
+  const { ref, isVisible } = useReveal();
   const [lines, setLines] = useState<string[]>([]);
 
   useEffect(() => {
@@ -28,7 +30,11 @@ const About = () => {
   const { displayedLines } = useTypewriter(lines, 50);
 
   return (
-    <section id="about" className={`${styles['about']} section reveal`}>
+    <section
+      id="about"
+      className={`${styles['about']} section reveal ${isVisible ? 'reveal--visible' : ''}`}
+      ref={ref}
+    >
       <Card />
       <div className={styles['about__description']}>
         {displayedLines.map((line, index) => {
