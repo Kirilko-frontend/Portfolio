@@ -10,10 +10,10 @@ const Main = () => {
   return (
     <main className={`${styles['main']} container bottom-divider`}>
       <About />
-      <Skills />
-      <Portfolio />
-      <Experience />
-      <Contact />
+      {/* <Skills /> */}
+      {/* <Portfolio /> */}
+      {/* <Experience /> */}
+      {/* <Contact /> */}
     </main>
   );
 };

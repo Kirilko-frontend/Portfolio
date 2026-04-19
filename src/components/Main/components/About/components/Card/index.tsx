@@ -8,8 +8,13 @@ import { IconPushpin1, IconVerified1 } from '@icons';
 
 import styles from './styles.module.scss';
 
-const Card = () => {
+interface IProps {
+  className?: string;
+}
+
+const Card = (props: IProps) => {
   const { t } = useTranslation();
+  const { className } = props;
   const [flipped, setFlipped] = useState(false);
 
   const handleClick = () => {
@@ -17,7 +22,7 @@ const Card = () => {
   };
 
   return (
-    <div className={styles['card-container']}>
+    <div className={`${styles['card-container']} ${className}`}>
       <div className={`${styles['card']} ${flipped ? styles['card--flipped'] : ''}`}>
         <div className={styles['card__front']}>
           <IconPushpin1 className={styles['card__avatar-icon-pushpin']} />

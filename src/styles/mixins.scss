@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 // Центрирование по обеим осям
 @mixin flex-center {
   display: flex;
@@ -121,14 +123,14 @@
   }
 }
 
-@mixin responsive($breakpoint) {
-  @if $breakpoint == tablet {
-    @media (max-width: 768px) {
+@mixin respond-up($key) {
+  $size: map-get($breakpoints, $key);
+
+  @if $size {
+    @media (min-width: $size) {
       @content;
     }
-  } @else if $breakpoint == mobile {
-    @media (max-width: 480px) {
-      @content;
-    }
+  } @else {
+    @warn "Нет такого брейкпоинта: #{$key}";
   }
 }

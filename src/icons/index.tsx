@@ -8,6 +8,7 @@ import IconLinkedIn1 from './IconLinkedIn-1';
 import IconTelegram1 from './IconTelegram-1';
 import IconInstagram1 from './IconInstagram-1';
 import IconCross1 from './IconCross-1';
+import IconBurgeMenu1 from './IconBurgeMenu-1';
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   IconTelegram1,
   IconInstagram1,
   IconCross1,
+  IconBurgeMenu1,
 };

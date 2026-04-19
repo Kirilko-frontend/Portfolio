@@ -67,3 +67,9 @@ $theme: (
     rgba(var(--color-white), 0.1),
   ),
 );
+
+$breakpoints: (
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px,
+);

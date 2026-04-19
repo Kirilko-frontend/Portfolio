@@ -35,7 +35,6 @@ const About = () => {
       className={`${styles['about']} section reveal ${isVisible ? 'reveal--visible' : ''}`}
       ref={ref}
     >
-      <Card />
       <div className={styles['about__description']}>
         {displayedLines.map((line, index) => {
           return (
@@ -47,6 +46,7 @@ const About = () => {
           );
         })}
       </div>
+      <Card className={styles['about__card']} />
     </section>
   );
 };

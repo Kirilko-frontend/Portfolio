@@ -13,7 +13,7 @@ const App = () => {
     <div className={styles['app']}>
       <Header />
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

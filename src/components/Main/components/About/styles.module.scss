@@ -1,21 +1,35 @@
 .about {
-  @include flex-center;
+  @include flex-column();
   gap: 5rem;
+
+  @include respond-up(lg) {
+    @include flex-center;
+    flex-direction: row;
+  }
 }
 
 .about__description {
   @include flex-column-start;
   gap: 0.5rem;
-  min-height: 35rem;
-  min-width: 47rem;
+  min-width: 30rem;
+  min-height: 50rem;
+
+  @include respond-up(lg) {
+    min-width: 47rem;
+    min-height: 35rem;
+  }
 }
 
 .about__description-title {
-  @include font(400, 1.9rem, 1.2);
+  @include font(400, 2.5rem, 1.2);
   color: rgb(var(--color-white));
 
   span {
     color: rgb(var(--color-accent));
+  }
+
+  @include respond-up(lg) {
+    @include font(400, 1.9rem, 1.2);
   }
 }
 
