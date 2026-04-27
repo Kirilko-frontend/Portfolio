@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <main className={`${styles['main']} container bottom-divider`}>
       <About />
-      {/* <Skills /> */}
+      <Skills />
       {/* <Portfolio /> */}
       {/* <Experience /> */}
       {/* <Contact /> */}
