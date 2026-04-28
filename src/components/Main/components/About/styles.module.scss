@@ -20,7 +20,7 @@
 }
 
 .about__description-title {
-  @include font(400, 2.5rem, 1.2);
+  @include font(400, 1.9rem, 1.2);
   color: rgb(var(--color-white));
 
   span {
@@ -28,7 +28,7 @@
   }
 
   @include respond-up(lg) {
-    @include font(400, 1.9rem, 1.2);
+    @include font(400, 2.5rem, 1.2);
   }
 }
 

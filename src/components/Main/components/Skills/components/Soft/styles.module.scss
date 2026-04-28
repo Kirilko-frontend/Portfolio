@@ -1,23 +1,25 @@
-.soft {
-  min-height: 44.5rem;
-}
-
 .soft__title {
   @include font(600, 3rem, 1.2);
   color: rgb(var(--color-white));
 }
 
 .soft__items {
-  display: grid;
+  @include flex-column;
   gap: 1rem;
+
+  @include respond-up(sm) {
+    display: grid;
+    gap: 1rem;
+  }
 }
 
 .skill {
   @include flex-column;
   gap: 2rem;
-  padding: 1.3rem;
+  padding: 1.5rem;
   border-radius: 1.2rem;
-  height: 18.2rem;
+  height: 26rem;
+  width: 14rem;
   background-color: var(--bg-gray);
   border: 0.1rem solid rgb(var(--color-white), 0.1);
   box-shadow: var(--box-shadow-white);
@@ -28,19 +30,40 @@
     transform: translateY(var(--translateY));
     box-shadow: var(--box-shadow-accent);
   }
+
+  @include respond-up(sm) {
+    height: 28rem;
+    width: auto;
+  }
+
+  @include respond-up(md) {
+    height: 24.5rem;
+  }
+
+  @include respond-up(lg) {
+    height: 30rem;
+  }
 }
 
 .skill__title {
   @include font(600, 1.5rem, 1.2);
   color: rgb(var(--color-white));
+
+  @include respond-up(md) {
+    @include font(600, 1.8rem, 1.2);
+  }
 }
 
 .skill__points {
   @include flex-column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .skill__point {
   @include font(400, 1rem, 1.2);
   color: rgb(var(--color-white));
+
+  @include respond-up(md) {
+    @include font(400, 1.2rem, 1.2);
+  }
 }
