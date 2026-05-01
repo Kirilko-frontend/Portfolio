@@ -3,21 +3,45 @@
 }
 
 .portfolio__title {
-  @include font(600, 3rem, 1.2);
+  @include font(600, 1.7rem, 1.2);
   color: rgb(var(--color-white));
+
+  @include respond-up(md) {
+    @include font(600, 2rem, 1.2);
+  }
+
+  @include respond-up(lg) {
+    @include font(600, 3rem, 1.2);
+  }
 }
 
 .portfolio__line {
-  @include absolute-center;
-  width: 0.8rem;
-  height: 100%;
-  border-radius: 1rem;
-  background-color: rgb(var(--color-accent));
-  box-shadow: var(--box-shadow-accent);
+  display: none;
+
+  @include respond-up(lg) {
+    @include absolute-center;
+    display: block;
+    width: 0.8rem;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: rgb(var(--color-accent));
+    box-shadow: var(--box-shadow-accent);
+  }
 }
 
 .portfolio__projects {
   @include flex-column;
   gap: 2rem;
   margin-top: 3rem;
+
+  @include respond-up(sm) {
+    @include flex-center;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  @include respond-up(md) {
+    @include flex-column;
+    margin-top: 3rem;
+  }
 }

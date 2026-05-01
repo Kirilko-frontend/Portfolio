@@ -19,7 +19,7 @@
   padding: 1.5rem;
   border-radius: 1.2rem;
   height: 26rem;
-  width: 14rem;
+  width: 11.5rem;
   background-color: var(--bg-gray);
   border: 0.1rem solid rgb(var(--color-white), 0.1);
   box-shadow: var(--box-shadow-white);
@@ -39,14 +39,10 @@
   @include respond-up(md) {
     height: 24.5rem;
   }
-
-  @include respond-up(lg) {
-    height: 30rem;
-  }
 }
 
 .skill__title {
-  @include font(600, 1.5rem, 1.2);
+  @include font(600, 1.2rem, 1.2);
   color: rgb(var(--color-white));
 
   @include respond-up(md) {

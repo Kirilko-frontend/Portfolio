@@ -3,18 +3,42 @@
   gap: 1rem;
   position: relative;
   height: 23rem;
-  width: 52rem;
+  width: 11.5rem;
   background-color: var(--bg-gray);
   border: 0.1rem solid rgba(var(--color-white), 0.1);
   border-radius: 1rem;
   padding: 1rem;
   transition: all var(--transition);
 
+  @include respond-up(md) {
+    height: 23rem;
+    width: 53rem;
+  }
+
+  @include respond-up(lg) {
+    height: 23rem;
+    width: 52rem;
+  }
+
   &:hover {
     background-color: rgba(var(--color-white), 0.2);
     border: 0.1rem solid rgba(var(--color-white), 0.2);
     box-shadow: var(--box-shadow-accent);
     transform: translateY(var(--translateY));
+  }
+}
+
+.left,
+.right {
+  align-self: center;
+}
+
+@include respond-up(lg) {
+  .left {
+    align-self: flex-start;
+  }
+  .right {
+    align-self: flex-end;
   }
 }
 
@@ -29,10 +53,21 @@
 }
 
 .project__description {
-  @include font(400, 1.2rem, 1.2);
+  @include font(400, 1rem, 1.2);
   color: rgb(var(--color-white));
-  min-height: 4rem;
-  min-width: 25rem;
+  min-height: 8rem;
+  min-width: 10rem;
+
+  @include respond-up(md) {
+    @include font(400, 1rem, 1.2);
+    min-width: 27rem;
+  }
+
+  @include respond-up(lg) {
+    @include font(400, 1.2rem, 1.2);
+    min-width: 25rem;
+    min-height: 4rem;
+  }
 }
 
 .project__date-wrapper {
@@ -50,7 +85,11 @@
 
 .project__date {
   @include font(400, 1.2rem, 1.2);
-  color: rgb(var(--color-white), 0.8);
+  color: rgb(var(--color-white));
+
+  @include respond-up(lg) {
+    color: rgb(var(--color-white), 0.8);
+  }
 }
 
 .project__links {
@@ -80,10 +119,19 @@
 }
 
 .project__preview-wrapper {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  width: 90rem;
-  border-radius: 0.5rem;
+  display: none;
+
+  @include respond-up(md) {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    width: 50rem;
+    border-radius: 0.5rem;
+  }
+
+  @include respond-up(lg) {
+    width: 90rem;
+  }
 }
 
 .project__preview {

@@ -4,7 +4,6 @@ import styles from './styles.module.scss';
 
 import Header from './components/Header';
 import Main from './components/Main';
-import Footer from './components/Footer';
 
 const App = () => {
   useReveal();
@@ -13,7 +12,6 @@ const App = () => {
     <div className={styles['app']}>
       <Header />
       <Main />
-      {/* <Footer /> */}
     </div>
   );
 };

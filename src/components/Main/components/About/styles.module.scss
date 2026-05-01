@@ -11,7 +11,7 @@
 .about__description {
   @include flex-column-start;
   gap: 0.5rem;
-  min-height: 50rem;
+  min-height: 34rem;
 
   @include respond-up(lg) {
     min-width: 47rem;
@@ -20,15 +20,15 @@
 }
 
 .about__description-title {
-  @include font(400, 1.9rem, 1.2);
+  @include font(400, 1.2rem, 1.2);
   color: rgb(var(--color-white));
 
   span {
     color: rgb(var(--color-accent));
   }
 
-  @include respond-up(lg) {
-    @include font(400, 2.5rem, 1.2);
+  @include respond-up(sm) {
+    @include font(400, 2rem, 1.2);
   }
 }
 

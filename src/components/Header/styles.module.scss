@@ -57,7 +57,7 @@
   transition: transform 0.35s ease;
   padding: 5rem 2rem;
 
-  @include respond-up(lg) {
+  @include respond-up(md) {
     position: static;
     transform: none;
     height: auto;
@@ -76,18 +76,26 @@
   @include flex-column();
   gap: 2rem;
 
-  @include respond-up(lg) {
+  @include respond-up(md) {
     @include flex-center();
     flex-direction: row;
   }
 }
 
 .header__nav-link {
-  @include font(500, var(--font-size-lg), 1.2);
+  @include font(500, 1.5rem, 1.2);
   color: rgb(var(--color-white));
 
   &:hover {
     color: rgb(var(--color-accent));
+  }
+
+  @include respond-up(md) {
+    @include font(500, 1.2rem, 1.2);
+  }
+
+  @include respond-up(lg) {
+    @include font(500, 1.5rem, 1.2);
   }
 }
 

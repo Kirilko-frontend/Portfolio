@@ -57,10 +57,7 @@ const Project = (props: IProps) => {
 
   return (
     <div
-      className={styles['project']}
-      style={{
-        alignSelf: position === 'left' ? 'flex-start' : 'flex-end',
-      }}
+      className={`${styles['project']} ${position === 'left' ? styles['left'] : styles['right']}`}
     >
       <div className={styles['project__wrappper']}>
         <h1 className={styles['project__title']}>{title}</h1>

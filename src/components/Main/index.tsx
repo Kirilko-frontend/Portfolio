@@ -11,9 +11,9 @@ const Main = () => {
     <main className={`${styles['main']} container bottom-divider`}>
       <About />
       <Skills />
-      {/* <Portfolio /> */}
-      {/* <Experience /> */}
-      {/* <Contact /> */}
+      <Portfolio />
+      <Experience />
+      <Contact />
     </main>
   );
 };

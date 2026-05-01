@@ -4,8 +4,16 @@
 }
 
 .contact__title {
-  @include font(600, 3rem, 1.2);
+  @include font(600, 1.7rem, 1.2);
   color: rgb(var(--color-white));
+
+  @include respond-up(md) {
+    @include font(600, 2rem, 1.2);
+  }
+
+  @include respond-up(lg) {
+    @include font(600, 3rem, 1.2);
+  }
 }
 
 .contact__terminal-wrapper {
