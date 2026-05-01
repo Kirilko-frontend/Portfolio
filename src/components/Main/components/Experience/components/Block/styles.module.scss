@@ -11,18 +11,17 @@
 
   @include respond-up(md) {
     min-width: 54rem;
+    &:hover {
+      box-shadow: var(--box-shadow-accent);
+      transform: translateY(var(--translateY));
+      background-color: rgba(var(--color-white), 0.2);
+    }
   }
 
   @include respond-up(lg) {
     min-width: 35rem;
     min-height: 36rem;
     justify-content: flex-start;
-  }
-
-  &:hover {
-    box-shadow: var(--box-shadow-accent);
-    transform: translateY(var(--translateY));
-    background-color: rgba(var(--color-white), 0.2);
   }
 }
 
@@ -49,7 +48,7 @@
   }
 
   @include respond-up(lg) {
-    width: 16rem;
+    width: 18rem;
   }
 }
 

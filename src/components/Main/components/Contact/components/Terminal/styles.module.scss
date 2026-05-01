@@ -41,9 +41,11 @@
     @include font(400, 1.2rem, 1.2);
   }
 
-  &:hover {
-    color: rgb(var(--color-accent));
-    transform: translateX(0.6rem);
+  @include respond-up(md) {
+    &:hover {
+      color: rgb(var(--color-accent));
+      transform: translateX(0.6rem);
+    }
   }
 }
 

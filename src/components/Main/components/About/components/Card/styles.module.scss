@@ -179,8 +179,10 @@
   @include square(2rem);
   fill: rgb(var(--color-black));
 
-  &:hover {
-    transform: scale(1.1);
+  @include respond-up(md) {
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 

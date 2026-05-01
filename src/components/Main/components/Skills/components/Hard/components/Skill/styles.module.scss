@@ -72,14 +72,12 @@
     @include font(400, 1rem, 1.2);
     width: auto;
     height: auto;
-  }
-}
 
-.tag {
-  transition: all var(--transition);
+    transition: all var(--transition);
 
-  &:hover {
-    box-shadow: var(--box-shadow-accent);
-    transform: translateY(var(--translateY));
+    &:hover {
+      box-shadow: var(--box-shadow-accent);
+      transform: translateY(var(--translateY));
+    }
   }
 }

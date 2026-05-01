@@ -26,18 +26,18 @@
 
   transition: all var(--transition);
 
-  &:hover {
-    transform: translateY(var(--translateY));
-    box-shadow: var(--box-shadow-accent);
+  @include respond-up(md) {
+    height: 24.5rem;
+
+    &:hover {
+      transform: translateY(var(--translateY));
+      box-shadow: var(--box-shadow-accent);
+    }
   }
 
   @include respond-up(sm) {
-    height: 28rem;
+    height: 25rem;
     width: auto;
-  }
-
-  @include respond-up(md) {
-    height: 24.5rem;
   }
 }
 
