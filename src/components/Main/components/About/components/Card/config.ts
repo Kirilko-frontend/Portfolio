@@ -1,6 +1,6 @@
 import { IconGitHub1, IconInstagram1, IconLinkedIn1, IconMail1, IconTelegram1 } from '@/icons';
-import avatar from './assets/src/avatar.png';
-import monkeyGif from './assets/src/monkey.gif';
+import avatar from '/public/avatar/avatar.png';
+import monkeyGif from '/public/gifs/monkey.gif';
 
 const cardItems = [
   {
