@@ -5,6 +5,13 @@ const useReveal = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
