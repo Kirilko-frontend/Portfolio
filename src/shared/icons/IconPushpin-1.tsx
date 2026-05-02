@@ -1,4 +1,4 @@
-import type { IconProps } from '../types/icons';
+import type { IconProps } from '@/types/icons';
 
 const IconPushpin1 = (props: IconProps) => {
   const { className } = props;
