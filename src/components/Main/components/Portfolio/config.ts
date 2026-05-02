@@ -1,6 +1,6 @@
-import preview1 from './src/assets/projects/project-1.mp4';
-import preview2 from './src/assets/projects/project-2.mp4';
-import preview3 from './src/assets/projects/project-3.mp4';
+import preview1 from '/public/projects-videos/project-1.mp4';
+import preview2 from '/public/projects-videos/project-2.mp4';
+import preview3 from '/public/projects-videos/project-3.mp4';
 
 const projects = [
   {
