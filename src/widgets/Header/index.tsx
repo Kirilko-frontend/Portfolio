@@ -29,12 +29,10 @@ const Header = () => {
     <header className={`${styles['header']} section bottom-divider`}>
       <div className={`${styles['header__container']} container`}>
         {/* LOGO */}
-        <div className={styles['header__logo-wrapper']}>
-          <a href="/">
-            <Logo className={styles['header__logo']} />
-          </a>
-          <div className={styles['header__logo-glow']} />
-        </div>
+        <a href="/">
+          <Logo className={styles['header__logo']} />
+        </a>
+        <div className={styles['header__logo-glow']} />
 
         {/* BURGER */}
         <button className={styles['header__burger']} onClick={() => setIsOpenMenu((prev) => !prev)}>
