@@ -66,7 +66,7 @@
 
     "role1": "Frontend Developer",
     "company1": "Gaming Project (GTA)",
-    "period1": "Wrzesień 2025 – Styczeń 2026",
+    "period1": "Wrzesień 2025 – Marzec 2026",
     "stack1": "Tech stack : SolidJS, TypeScript, SCSS, WebSocket, Solid Router",
     "item1-description1": "Tworzyłem interfejsy UI na podstawie makiet (menu, HUD, formularze)",
     "item1-description2": "Implementowałem logikę interakcji użytkownika",
@@ -78,7 +78,7 @@
 
     "role2": "Frontend Developer",
     "company2": "Freelance / Private Projects",
-    "period2": "Wrzesień 2025 – Grudzień 2025",
+    "period2": "Maj 2025 – Grudzień 2025",
     "stack2": "Tech stack : HTML, CSS, JavaScript, PHP",
     "item2-description1": "Tworzyłem responsywne strony (desktop i mobile)",
     "item2-description2": "Łączyłem komponenty w spójne interfejsy",
