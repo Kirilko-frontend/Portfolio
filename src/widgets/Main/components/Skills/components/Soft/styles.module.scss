@@ -4,7 +4,7 @@
 }
 
 .soft__items {
-  @include flex-column;
+  @include flex-column-center;
   gap: 1rem;
 
   @include respond-up(sm) {
