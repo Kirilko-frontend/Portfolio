@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { IconCross1, IconGitHub1, IconLink1 } from '@shared/icons';
 
@@ -17,43 +17,48 @@ interface IProps {
   position: 'left' | 'right';
 }
 
+const modalRoot = document.getElementById('modal-root');
+
 const Project = (props: IProps) => {
   const { id, title, date, linkGithub, linkDemo, preview, position } = props;
 
   const { t } = useTranslation();
 
-  const [clicked, setClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => {
-    setClicked(true);
-  };
+  const modalVideoRef = useRef<HTMLVideoElement>(null);
 
-  const handleClose = () => {
-    setClicked(false);
-  };
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setClicked(false);
-      }
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false);
     };
 
-    if (clicked) {
-      window.addEventListener('keydown', handleKey);
-    }
-
-    if (clicked) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
 
     return () => {
+      window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKey);
     };
-  }, [clicked]);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen && modalVideoRef.current) {
+      modalVideoRef.current.pause();
+      modalVideoRef.current.currentTime = 0;
+    }
+  }, [isOpen]);
+
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
 
   return (
     <div
@@ -86,33 +91,38 @@ const Project = (props: IProps) => {
       </div>
       <div className={styles['project__preview-wrapper']}>
         <video
-          onClick={handleClick}
+          onClick={openModal}
           className={styles['project__preview']}
           src={preview}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
         />
       </div>
-      {clicked &&
+      {modalRoot &&
         createPortal(
-          <div className={styles['project__modal']} onClick={handleClose}>
-            <button className={styles['project__close--btn']} onClick={handleClose}>
+          <div
+            className={`${styles['project__modal']} ${isOpen ? styles['open'] : styles['closed']}`}
+            onClick={handleOverlayClick}
+          >
+            <button className={styles['project__close--btn']} onClick={closeModal}>
               <IconCross1 className={styles['project__close--icon']} />
             </button>
             <div className={styles['project__modal-wrapper']} onClick={(e) => e.stopPropagation()}>
               <video
+                ref={modalVideoRef}
                 className={styles['project__modal-preview']}
                 src={preview}
-                autoPlay
-                loop
-                muted
+                preload="auto"
                 playsInline
+                muted
+                loop
               />
             </div>
           </div>,
-          document.getElementById('modal-root')!
+          modalRoot
         )}
     </div>
   );

@@ -153,13 +153,18 @@
   backdrop-filter: blur(0.8rem);
 
   opacity: 0;
-  animation: fadeIn var(--transition) forwards;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.closed {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .project__close--btn {
@@ -210,6 +215,12 @@
 @keyframes zoomIn {
   to {
     transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
     opacity: 1;
   }
 }
