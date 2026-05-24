@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website built to present my skills, experience, and frontend development journey.
 
-Currently, two official plugins are available:
+The project is designed not only as a showcase of completed work, but also as an evolving product that continues to grow as I learn and improve as a developer. It reflects my approach to building clean, scalable, and user-focused interfaces.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Demo: https://portfolio-chi-six-34.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 About the Project
 
-## Expanding the ESLint configuration
+This portfolio represents my current skill set in frontend development, including UI architecture, component design, and modern React patterns.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+It includes multiple interactive sections and UI experiments that demonstrate both technical knowledge and attention to user experience.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The project is not a final version — I continuously improve and expand it as I learn new technologies and approaches.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React
+- TypeScript
+- SCSS Modules
+- React i18next
+- React Portals
+- HTML5
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Key Features
+
+### 🎨 UI & Design
+- Fully responsive layout for all devices
+- Custom design system with SCSS variables and mixins
+- Grid-based layout system
+- Advanced hover effects (scale, color transitions, interactive states)
+- Component-based configuration approach
+- Custom logo and visual identity
+
+### ⚙️ Functionality
+- Multi-language support (4 languages via i18n)
+- Scroll-based animations and reveal effects
+- Keyboard support (ESC for modal and interactions)
+- Custom hooks (e.g. typing animation effects)
+- Navigation system across sections
+- Terminal-style developer contact section
+
+### 🧩 Architecture
+- Scalable folder structure
+- Shared UI components and utilities
+- Centralized styles system
+- Reusable hooks and icons
+- Widget-based layout (Header, Main sections, etc.)
+
+---
+
+## 📁 Project Structure
+public/
+assets, fonts, images, videos (initial load resources)
+
+src/
+app/ # App initialization and setup
+shared/ # Reusable logic (hooks, UI, icons, utils)
+styles/ # Global styles, variables, mixins
+widgets/ # Main layout sections (Header, Content, etc.)
+
+---
+
+📌 Notes
+
+This project is a personal frontend playground and portfolio combined into one.
+
+It reflects my current understanding of:
+
+component architecture
+UI/UX principles
+state management patterns
+performance considerations in React applications
+
+I continue to improve it over time as I grow as a developer.
+
+
+---
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
+yarn install
+yarn dev
+
