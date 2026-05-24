@@ -48,6 +48,10 @@ const Project = (props: IProps) => {
   }, [isOpen]);
 
   useEffect(() => {
+    if (isOpen && modalVideoRef.current) {
+      modalVideoRef.current.play().catch(() => {});
+    }
+
     if (!isOpen && modalVideoRef.current) {
       modalVideoRef.current.pause();
       modalVideoRef.current.currentTime = 0;
@@ -116,6 +120,7 @@ const Project = (props: IProps) => {
                 className={styles['project__modal-preview']}
                 src={preview}
                 preload="auto"
+                autoPlay
                 playsInline
                 muted
                 loop
