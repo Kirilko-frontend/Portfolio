@@ -22,6 +22,7 @@ const skills = [
         title: 'Frameworks & State',
         items: [
           { name: 'React' },
+          { name: 'Next.js' },
           { name: 'Redux' },
           { name: 'Redux Toolkit' },
           { name: 'SolidJS' },
