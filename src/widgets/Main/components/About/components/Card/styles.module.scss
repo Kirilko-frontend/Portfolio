@@ -143,6 +143,7 @@
 
 .card__front-button {
   @include font(400, 1rem, 1.2);
+  color: rgb(var(--color-black));
   position: absolute;
   bottom: 1rem;
   right: 2rem;
@@ -205,6 +206,7 @@
 
 .card__back-button {
   @include font(400, 1rem, 1.2);
+  color: rgb(var(--color-black));
   position: absolute;
   bottom: 1rem;
   right: 2rem;
