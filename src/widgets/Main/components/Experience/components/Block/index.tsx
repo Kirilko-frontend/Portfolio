@@ -9,13 +9,15 @@ interface IProps {
   period: string;
   stack: string;
   description: string[];
+  delay?: number;
 }
 
 const Block = (props: IProps) => {
-  const { id, role, company, period, stack, description } = props;
+  const { id, role, company, period, stack, description, delay } = props;
   const { t } = useTranslation();
+
   return (
-    <div key={id} className={styles['block']}>
+    <div key={id} className={`${styles['block']} reveal-item ${delay ? `delay-${delay}` : ''}`}>
       <div className={styles['block__period-wrapper']}>
         <p className={styles['block__period']}>{t(period)}</p>
       </div>
@@ -29,7 +31,9 @@ const Block = (props: IProps) => {
               .replace('Tech stack :', '')
               .split(',')
               .map((tech) => (
-                <span key={tech.trim()}>{tech.trim()}</span>
+                <span key={tech.trim()} className={styles['block__stack-tag']}>
+                  {tech.trim()}
+                </span>
               ))}
           </div>
         )}

@@ -1,8 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import i18n from '../../../i18n';
 
+const STORAGE_KEY = 'language';
+
 export const useLanguage = () => {
-  const [language, setLanguage] = useState(i18n.language || 'en');
+  const [language, setLanguage] = useState(
+    i18n.language || localStorage.getItem(STORAGE_KEY) || 'en'
+  );
 
   useEffect(() => {
     const handleChange = (lng: string) => setLanguage(lng);
@@ -14,7 +18,7 @@ export const useLanguage = () => {
 
   const changeLanguage = useCallback((lng: string) => {
     i18n.changeLanguage(lng);
-    localStorage.setItem('app-language', lng); // сохраняем выбранный язык
+    localStorage.setItem(STORAGE_KEY, lng); // сохраняем выбранный язык
   }, []);
 
   return { language, changeLanguage };

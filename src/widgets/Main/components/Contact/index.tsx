@@ -7,6 +7,7 @@ import config from './config';
 import Terminal from './components/Terminal';
 
 import styles from './styles.module.scss';
+
 const Contact = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useReveal();
@@ -17,9 +18,9 @@ const Contact = () => {
       id="contact"
       className={`${styles['contact']} section reveal ${isVisible ? 'reveal--visible' : ''}`}
     >
-      <h2 className={styles['contact__title']}>{t('contact.title')}</h2>
+      <h2 className={`${styles['contact__title']} glow-title`}>{t('contact.title')}</h2>
 
-      <div className={styles['contact__terminal-wrapper']}>
+      <div className={`${styles['contact__terminal-wrapper']} reveal-item delay-1`}>
         <Terminal lines={config.lines} methods={config.methods} start={isVisible} />
       </div>
     </section>

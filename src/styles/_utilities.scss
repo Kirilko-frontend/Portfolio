@@ -41,3 +41,86 @@
   transform: translateY(0) scale(1);
   filter: blur(0);
 }
+
+// Элементы секции с каскадным появлением (нужен родитель .reveal--visible)
+.reveal-item {
+  opacity: 0;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+  }
+}
+
+.reveal--visible .reveal-item {
+  opacity: 1;
+
+  animation: reveal-item-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0s);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+// Задержки для каскада
+.delay-1 {
+  --reveal-delay: 0.08s;
+}
+
+.delay-2 {
+  --reveal-delay: 0.16s;
+}
+
+.delay-3 {
+  --reveal-delay: 0.24s;
+}
+
+.delay-4 {
+  --reveal-delay: 0.36s;
+}
+
+.delay-5 {
+  --reveal-delay: 0.44s;
+}
+
+@keyframes reveal-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.98);
+    filter: blur(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+// Светящийся градиентный заголовок
+.glow-title {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-white)) 0%,
+    rgb(var(--color-accent-light)) 45%,
+    rgb(var(--color-accent)) 55%,
+    rgb(var(--color-white)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  animation: title-shimmer 6s linear infinite;
+  filter: drop-shadow(0 0 1.2rem rgba(var(--color-accent), 0.4));
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes title-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}

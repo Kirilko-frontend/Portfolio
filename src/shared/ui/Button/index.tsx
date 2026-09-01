@@ -7,6 +7,7 @@ const Button = ({
   onClick,
   className = '',
   disabled,
+  type = 'button',
   variant = 'primary',
   size = 'medium',
   fullWidth = false,
@@ -22,7 +23,7 @@ const Button = ({
   ].join(' ');
 
   return (
-    <button className={classes} onClick={onClick} disabled={disabled}>
+    <button className={classes} onClick={onClick} disabled={disabled} type={type}>
       {children}
     </button>
   );

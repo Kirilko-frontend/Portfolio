@@ -5,8 +5,8 @@ import {
   IconMail1,
   IconTelegram1,
 } from '@shared/icons';
-import avatar from '/public/avatar/avatar.png';
-import monkeyGif from '/public/gifs/monkey.gif';
+import avatar from '/avatar/avatar.png';
+import monkeyGif from '/gifs/monkey.gif';
 
 const cardItems = [
   {

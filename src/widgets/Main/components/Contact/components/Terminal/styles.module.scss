@@ -1,4 +1,7 @@
 .terminal {
+  position: relative;
+  overflow: hidden;
+
   width: 100%;
   max-width: 40rem;
   padding: 2rem;
@@ -12,6 +15,57 @@
 
   box-shadow: var(--box-shadow-accent);
   backdrop-filter: blur(1rem);
+
+  animation: terminal-pulse 3s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+// Бегущий «луч» сканирования
+.terminal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(var(--color-accent), 0.08),
+    transparent
+  );
+
+  animation: terminal-scan 3.5s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes terminal-pulse {
+  0%,
+  100% {
+    box-shadow: var(--box-shadow-accent);
+  }
+
+  50% {
+    box-shadow: 0 0 2.4rem 0 rgba(var(--color-accent), 0.75);
+  }
+}
+
+@keyframes terminal-scan {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(45rem);
+  }
 }
 
 .terminal__line {
@@ -43,7 +97,8 @@
 
   @include respond-up(md) {
     &:hover {
-      color: rgb(var(--color-accent));
+      color: rgb(var(--color-accent-light));
+      text-shadow: 0 0 1rem rgba(var(--color-accent), 0.7);
       transform: translateX(0.6rem);
     }
   }

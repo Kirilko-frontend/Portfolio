@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 
 import { IconCross1, IconGitHub1, IconLink1 } from '@shared/icons';
 
@@ -15,12 +15,13 @@ interface IProps {
   linkDemo: string;
   preview: string;
   position: 'left' | 'right';
+  delay?: number;
 }
 
 const modalRoot = document.getElementById('modal-root');
 
 const Project = (props: IProps) => {
-  const { id, title, date, linkGithub, linkDemo, preview, position } = props;
+  const { id, title, date, linkGithub, linkDemo, preview, position, delay } = props;
 
   const { t } = useTranslation();
 
@@ -58,7 +59,7 @@ const Project = (props: IProps) => {
     }
   }, [isOpen]);
 
-  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -66,10 +67,10 @@ const Project = (props: IProps) => {
 
   return (
     <div
-      className={`${styles['project']} ${position === 'left' ? styles['left'] : styles['right']}`}
+      className={`${styles['project']} ${position === 'left' ? styles['left'] : styles['right']} reveal-item ${delay ? `delay-${delay}` : ''}`}
     >
-      <div className={styles['project__wrappper']}>
-        <h1 className={styles['project__title']}>{title}</h1>
+      <div className={styles['project__wrapper']}>
+        <h2 className={styles['project__title']}>{title}</h2>
         <p className={styles['project__description']}>{t(`portfolio.project${id}-description`)}</p>
         <div className={styles['project__date-wrapper']}>
           <p className={styles['project__date']}>{t(date)}</p>

@@ -15,10 +15,10 @@ const Soft = () => {
           gridTemplateRows: `repeat(${config.grid.rows}, 1fr)`,
         }}
       >
-        {config.items.map((skill) => (
+        {config.items.map((skill, index) => (
           <div
             key={skill.title}
-            className={styles['skill']}
+            className={`${styles['skill']} reveal-item delay-${(index % 4) + 1}`}
             style={{
               gridColumn: skill.grid?.col,
               gridRow: skill.grid?.row,

@@ -1,6 +1,7 @@
 .card-container {
   perspective: 1000px;
   display: none;
+  animation: card-float 6s ease-in-out infinite;
 
   @include respond-up(sm) {
     display: block;
@@ -41,6 +42,9 @@
     border: 0.1rem solid rgb(var(--color-black));
     overflow: hidden;
     background-color: rgb(var(--color-white));
+    box-shadow:
+      0 2rem 4rem rgba(var(--color-black), 0.45),
+      0 0 3rem rgba(var(--color-accent), 0.25);
   }
 }
 
@@ -174,16 +178,24 @@
   gap: 2rem;
 }
 
-.card__back-link-icon {
+.card__back-link {
   display: block;
-  @include square(2rem);
-  fill: rgb(var(--color-black));
+  transition:
+    transform var(--transition),
+    filter var(--transition);
 
   @include respond-up(md) {
     &:hover {
       transform: scale(1.1);
+      filter: drop-shadow(0 0 0.8rem rgba(var(--color-accent), 0.7));
     }
   }
+}
+
+.card__back-link-icon {
+  display: block;
+  @include square(2rem);
+  fill: rgb(var(--color-black));
 }
 
 .card__back-monkey {
@@ -196,4 +208,15 @@
   position: absolute;
   bottom: 1rem;
   right: 2rem;
+}
+
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.8rem);
+  }
 }

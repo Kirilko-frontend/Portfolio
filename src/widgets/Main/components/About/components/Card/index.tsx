@@ -31,7 +31,7 @@ const Card = (props: IProps) => {
             <img src={config.avatar} alt="avatar" className={styles['card__avatar-image']} />
           </div>
           <div className={styles['card__info']}>
-            <h1 className={styles['card__info-title']}>{t('about.card-title')}</h1>
+            <h2 className={styles['card__info-title']}>{t('about.card-title')}</h2>
             <ul className={styles['card__info-list']}>
               {config.cardItems.map((item) => (
                 <li key={item.id} className={styles['card__info-item']}>
@@ -46,11 +46,17 @@ const Card = (props: IProps) => {
         </div>
         <div className={styles['card__back']}>
           <div className={styles['card__back-wrapper']}>
-            <h1 className={styles['card__back-title']}>{t('about.card-back-title')}</h1>
+            <h2 className={styles['card__back-title']}>{t('about.card-back-title')}</h2>
             <p className={styles['card__back-text']}>{t('about.card-back-text')}</p>
             <div className={styles['card__back-links']}>
               {config.links.map((link) => (
-                <a key={link.id} href={link.href} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={link.id}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles['card__back-link']}
+                >
                   <link.icon className={styles['card__back-link-icon']} />
                 </a>
               ))}

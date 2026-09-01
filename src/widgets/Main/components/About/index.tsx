@@ -27,7 +27,7 @@ const About = () => {
     setLines(newLines);
   }, [t, i18n.language, ready]);
 
-  const { displayedLines } = useTypewriter(lines, 50);
+  const { displayedLines, isFinished } = useTypewriter(lines, 50);
 
   return (
     <section
@@ -37,11 +37,21 @@ const About = () => {
     >
       <div className={styles['about__description']}>
         {displayedLines.map((line, index) => {
-          return (
+          const isLastLine = index === displayedLines.length - 1;
+          const html =
+            isLastLine && !isFinished ? `${line}<span class="${styles['cursor']}">|</span>` : line;
+
+          return index === 0 ? (
             <h1
               key={index}
               className={styles['about__description-title']}
-              dangerouslySetInnerHTML={{ __html: line }}
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          ) : (
+            <p
+              key={index}
+              className={styles['about__description-title']}
+              dangerouslySetInnerHTML={{ __html: html }}
             />
           );
         })}

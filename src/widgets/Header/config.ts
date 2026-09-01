@@ -26,4 +26,9 @@ const navItems = [
   },
 ];
 
-export default { navItems };
+const languages = ['ru', 'en', 'ua', 'pl'];
+
+export default {
+  navItems,
+  languages,
+};

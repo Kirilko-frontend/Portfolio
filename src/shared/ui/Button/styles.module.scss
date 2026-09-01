@@ -1,15 +1,21 @@
 .button {
-  font-family: rgb(var(--font-family));
-  font-size: rgb(var(--font-size-base));
+  font-family: var(--font-family);
+  font-size: 1rem;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all var(--transition);
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
 
   // full width
   &.fullWidth {
@@ -20,18 +26,22 @@
   &.primary {
     background-color: rgb(var(--color-white));
     color: rgb(var(--color-black));
-    transition: background-color var(--transition);
+
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-accent));
+      box-shadow: var(--box-shadow-accent-strong);
+      transform: translateY(-0.1rem);
     }
   }
 
   &.secondary {
     background-color: rgb(var(--color-black-light));
     color: rgb(var(--color-white));
-    transition: background-color var(--transition);
+
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-black));
+      box-shadow: 0 0 1.2rem rgba(var(--color-accent), 0.4);
+      transform: translateY(-0.1rem);
     }
   }
 
@@ -39,10 +49,21 @@
     background-color: transparent;
     color: rgb(var(--color-accent));
     border: 0.2rem solid rgb(var(--color-accent));
-    transition: background-color var(--transition);
+
     &:hover:not(:disabled) {
       background-color: rgb(var(--color-accent));
       color: rgb(var(--color-black));
+      box-shadow: var(--box-shadow-accent-strong);
+    }
+  }
+
+  &.tertiary {
+    background-color: transparent;
+    color: rgb(var(--color-white));
+
+    &:hover:not(:disabled) {
+      color: rgb(var(--color-accent));
+      text-shadow: 0 0 1rem rgba(var(--color-accent), 0.8);
     }
   }
 
@@ -72,5 +93,11 @@
   &.active {
     background-color: rgb(var(--color-accent));
     color: rgb(var(--color-black));
+    box-shadow: var(--box-shadow-accent);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid rgba(var(--color-accent), 0.6);
+    outline-offset: 0.2rem;
   }
 }

@@ -1,6 +1,49 @@
 .app {
-  height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
+  overflow-x: hidden;
+}
 
-  background-color: rgb(var(--color-bg));
+.app__scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  height: 0.3rem;
+  border-radius: 0 99rem 99rem 0;
+
+  background: linear-gradient(90deg, rgb(var(--color-accent)), rgb(var(--color-accent-light)));
+  box-shadow: 0 0 1rem rgba(var(--color-accent), 0.6);
+
+  will-change: width;
+}
+
+.app__cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 400;
+
+  width: 38rem;
+  height: 38rem;
+  margin: -19rem 0 0 -19rem;
+
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(var(--color-accent), 0.16) 0%,
+    rgba(var(--color-accent-light), 0.05) 45%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+
+  transform: translate3d(var(--cursor-x, -100rem), var(--cursor-y, -100rem), 0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    display: none;
+  }
 }

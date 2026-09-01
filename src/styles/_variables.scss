@@ -9,6 +9,11 @@ $theme: (
     230,
     235,
   ),
+  color-text: (
+    200,
+    200,
+    215,
+  ),
   color-accent: (
     139,
     92,
@@ -44,13 +49,20 @@ $theme: (
     'Oswald',
     sans-serif,
   ),
+  font-size-base: (
+    1rem,
+  ),
+  font-size-xl: (
+    3rem,
+  ),
+  font-size-lg: (
+    2rem,
+  ),
 
-  box-shadow-white: (
-    0 0 1rem 0 rgb(var(--color-white), 0.1),
-  ),
-  box-shadow-accent: (
-    0 0 1rem 0 rgb(var(--color-accent), 0.5),
-  ),
+  // Строки, чтобы CSS-переменные получали тень «как есть» (без запятых между токенами)
+  box-shadow-white: '0 0 1rem 0 rgb(var(--color-white), 0.1)',
+  box-shadow-accent: '0 0 1rem 0 rgb(var(--color-accent), 0.5)',
+  box-shadow-accent-strong: '0 0 1.6rem 0 rgba(var(--color-accent), 0.65)',
 
   translateY: (
     -0.2rem,

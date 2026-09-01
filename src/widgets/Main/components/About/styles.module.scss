@@ -24,7 +24,8 @@
   color: rgb(var(--color-white));
 
   span {
-    color: rgb(var(--color-accent));
+    color: rgb(var(--color-accent-light));
+    text-shadow: 0 0 1.4rem rgba(var(--color-accent), 0.8);
   }
 
   @include respond-up(sm) {
@@ -35,6 +36,7 @@
 .cursor {
   display: inline-block;
   width: 1ch;
+  color: rgb(var(--color-accent));
   animation: blink 1s steps(2, start) infinite;
 }
 

@@ -11,15 +11,16 @@ import styles from './styles.module.scss';
 const Experience = () => {
   const { t } = useTranslation();
   const { ref, isVisible } = useReveal();
+
   return (
     <section
       id="experience"
       className={`${styles['experience']} section reveal ${isVisible ? 'reveal--visible' : ''}`}
       ref={ref}
     >
-      <h2 className={styles['experience__title']}>{t('experience.title')}</h2>
+      <h2 className={`${styles['experience__title']} glow-title`}>{t('experience.title')}</h2>
       <div className={styles['experience__blocks']}>
-        {config.experienceBlocks.map((item) => (
+        {config.experienceBlocks.map((item, index) => (
           <Block
             key={item.id}
             id={item.id}
@@ -28,6 +29,7 @@ const Experience = () => {
             period={item.period}
             stack={item.stack}
             description={item.description}
+            delay={index + 1}
           />
         ))}
       </div>
