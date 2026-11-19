@@ -9,7 +9,7 @@ import StableText from '@shared/ui/StableText';
 
 import { IconArrow1 } from '@shared/icons';
 
-import avatar from '/avatar/avatar.png';
+import avatar from '/avatar/avatar.webp';
 
 import styles from './styles.module.scss';
 

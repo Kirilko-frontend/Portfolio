@@ -1,4 +1,4 @@
-import avatar from '/avatar/avatar.png';
+import avatar from '/avatar/avatar.webp';
 import monkeyGif from '/gifs/monkey.gif';
 
 // Строки карточки в переводах имеют вид «Метка : значение» — делим их по первому двоеточию

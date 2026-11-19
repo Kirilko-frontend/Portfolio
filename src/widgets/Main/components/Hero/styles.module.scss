@@ -195,11 +195,19 @@
   background: var(--gradient-accent);
   box-shadow: 0 0 2rem rgba(var(--color-accent), 0.5);
 
+  position: relative;
+
+  // Фото — вырезанная фигура на прозрачном фоне. Вместо cover (одно лицо крупным планом)
+  // показываем фигуру по грудь: голова сверху, плечи упираются в низ капсулы
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 25%;
+    position: absolute;
+    left: 50%;
+    top: 6%;
+    width: auto;
+    max-width: none;
+    height: 125%;
+    transform: translateX(-50%);
+    transform-origin: 50% 100%;
     transition: transform 0.8s var(--ease-out);
   }
 
@@ -209,7 +217,7 @@
 
   @media (hover: hover) {
     &:hover img {
-      transform: scale(1.15);
+      transform: translateX(-50%) scale(1.08);
     }
   }
 }
