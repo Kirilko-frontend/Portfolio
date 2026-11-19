@@ -9,8 +9,8 @@ import Soft from './components/Soft';
 import styles from './styles.module.scss';
 
 const marqueeRows = [
-  ['React', 'TypeScript', 'Next.js', 'Redux Toolkit', 'SolidJS', 'JavaScript', 'Sass'],
-  ['Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'REST API', 'Vite', 'Figma', 'Git'],
+  ['React', 'TypeScript', 'SolidJS', 'Tailwind CSS', 'Next.js', 'WebSocket', 'SCSS', 'GSAP'],
+  ['NestJS', 'PostgreSQL', 'Prisma', 'Node.js', 'Docker', 'REST API', 'JWT', 'Figma', 'Git'],
 ];
 
 const Skills = () => {

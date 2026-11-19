@@ -10,7 +10,7 @@ import Card from './components/Card';
 import styles from './styles.module.scss';
 
 const stats = [
-  { value: 2, suffix: '+', label: 'about.stat-years' },
+  { value: 100, suffix: '+', label: 'about.stat-sites' },
   { value: 30, suffix: '+', label: 'about.stat-tech' },
   { value: 4, suffix: '', label: 'about.stat-languages' },
 ];
