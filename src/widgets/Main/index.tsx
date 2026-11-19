@@ -1,3 +1,4 @@
+import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
@@ -8,12 +9,17 @@ import styles from './styles.module.scss';
 
 const Main = () => {
   return (
-    <main className={`${styles['main']} container bottom-divider`}>
-      <About />
-      <Skills />
-      <Portfolio />
-      <Experience />
-      <Contact />
+    <main className={styles['main']}>
+      <Hero />
+
+      {/* «Лист», который при скролле наезжает на закреплённый Hero */}
+      <div className={styles['main__sheet']}>
+        <About />
+        <Skills />
+        <Portfolio />
+        <Experience />
+        <Contact />
+      </div>
     </main>
   );
 };

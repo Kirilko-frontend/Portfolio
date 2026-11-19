@@ -1,23 +1,35 @@
-import useMouseGlow from '@shared/hooks/useMouseGlow';
-import useScrollProgress from '@shared/hooks/useScrollProgress';
+import { useCallback, useState } from 'react';
+
+import useSmoothScroll from '@shared/hooks/useSmoothScroll';
+import { IntroContext } from '@shared/context/IntroContext';
+import Cursor from '@shared/ui/Cursor';
+import Preloader from '@shared/ui/Preloader';
+import ScrollProgress from '@shared/ui/ScrollProgress';
 
 import styles from './styles.module.scss';
 
 import Header from '@widgets/Header';
 import Main from '@widgets/Main';
+import Footer from '@widgets/Footer';
 
 const App = () => {
-  const scrollProgress = useScrollProgress();
-  const cursorGlowRef = useMouseGlow();
+  useSmoothScroll();
+
+  const [isIntroDone, setIsIntroDone] = useState(false);
+  const handleReveal = useCallback(() => setIsIntroDone(true), []);
 
   return (
-    <div className={styles['app']}>
-      <div className={styles['app__scroll-progress']} style={{ width: `${scrollProgress * 100}%` }} />
-      <div ref={cursorGlowRef} className={styles['app__cursor-glow']} />
+    <IntroContext.Provider value={isIntroDone}>
+      <Preloader onReveal={handleReveal} />
+      <Cursor />
+      <ScrollProgress />
 
-      <Header />
-      <Main />
-    </div>
+      <div className={styles['app']}>
+        <Header />
+        <Main />
+        <Footer />
+      </div>
+    </IntroContext.Provider>
   );
 };
 

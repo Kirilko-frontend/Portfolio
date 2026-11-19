@@ -1,81 +1,142 @@
-import { createPortal } from 'react-dom';
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
-
-import { IconCross1, IconGitHub1, IconLink1 } from '@shared/icons';
-
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { IconArrow1, IconGitHub1 } from '@shared/icons';
 
 import styles from './styles.module.scss';
 
 interface IProps {
-  id: number;
+  index: number;
+  total: number;
   title: string;
   date: string;
+  description: string;
   linkGithub: string;
   linkDemo: string;
   preview: string;
-  position: 'left' | 'right';
-  delay?: number;
+  poster: string;
+  onOpen: () => void;
 }
 
-const modalRoot = document.getElementById('modal-root');
+// Описание в переводах: «Текст; стек технологий: A, B, C» — отделяем стек
+const parseDescription = (text: string) => {
+  const [description, stackPart = ''] = text.split(';');
+  const stack = stackPart.includes(':') ? stackPart.slice(stackPart.indexOf(':') + 1) : stackPart;
+
+  return {
+    description: description.trim(),
+    stack: stack
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean),
+  };
+};
 
 const Project = (props: IProps) => {
-  const { id, title, date, linkGithub, linkDemo, preview, position, delay } = props;
-
+  const { index, total, title, date, description, linkGithub, linkDemo, preview, poster, onOpen } = props;
   const { t } = useTranslation();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { description: text, stack } = parseDescription(description);
 
-  const modalVideoRef = useRef<HTMLVideoElement>(null);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
+  // Производительность: видео не грузится, пока карточка далеко от экрана,
+  // и проигрывается только пока его видно
   useEffect(() => {
-    if (!isOpen) return;
+    const video = videoRef.current;
+    if (!video) return;
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsOpen(false);
+    let isVisible = false;
+    const tryPlay = () => {
+      if (isVisible && video.getAttribute('src')) video.play().catch(() => {});
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    const loader = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        video.src = preview;
+        loader.disconnect();
+        tryPlay();
+      },
+      { rootMargin: '50% 50%' }
+    );
+
+    const player = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) tryPlay();
+        else video.pause();
+      },
+      { threshold: 0.25 }
+    );
+
+    loader.observe(video);
+    player.observe(video);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
+      loader.disconnect();
+      player.disconnect();
     };
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen && modalVideoRef.current) {
-      modalVideoRef.current.play().catch(() => {});
-    }
-
-    if (!isOpen && modalVideoRef.current) {
-      modalVideoRef.current.pause();
-      modalVideoRef.current.currentTime = 0;
-    }
-  }, [isOpen]);
-
-  const handleOverlayClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
+  }, [preview]);
 
   return (
-    <div
-      className={`${styles['project']} ${position === 'left' ? styles['left'] : styles['right']} reveal-item ${delay ? `delay-${delay}` : ''}`}
-    >
-      <div className={styles['project__wrapper']}>
-        <h2 className={styles['project__title']}>{title}</h2>
-        <p className={styles['project__description']}>{t(`portfolio.project${id}-description`)}</p>
-        <div className={styles['project__date-wrapper']}>
-          <p className={styles['project__date']}>{t(date)}</p>
+    <article className={styles['project']} data-project>
+      <button
+        type="button"
+        className={styles['project__media']}
+        onClick={onOpen}
+        aria-label={`${t('portfolio.play')}: ${title}`}
+      >
+        <span className={styles['project__parallax']} data-parallax>
+          <video
+            ref={videoRef}
+            className={styles['project__video']}
+            poster={poster}
+            loop
+            muted
+            playsInline
+            preload="none"
+          />
+        </span>
+        <span className={styles['project__shade']} aria-hidden="true" />
+        <span className={styles['project__play']} aria-hidden="true">
+          <span className={styles['project__play-icon']} />
+          {t('portfolio.play')}
+        </span>
+      </button>
+
+      <div className={styles['project__info']}>
+        <div className={styles['project__top']}>
+          <span className={styles['project__index']}>
+            {String(index + 1).padStart(2, '0')}
+            <span>/{String(total).padStart(2, '0')}</span>
+          </span>
+          <span className={styles['project__divider']} aria-hidden="true" />
+          <span className={styles['project__date']}>{t(date)}</span>
         </div>
+
+        <h3 className={styles['project__title']}>{title}</h3>
+        <p className={styles['project__description']}>{text}</p>
+
+        {stack.length > 0 && (
+          <ul className={styles['project__stack']} aria-label={t('portfolio.stack')}>
+            {stack.map((tech) => (
+              <li key={tech} className={styles['project__tag']}>
+                {tech}
+              </li>
+            ))}
+          </ul>
+        )}
+
         <div className={styles['project__links']}>
+          <a
+            className={`${styles['project__link']} ${styles['project__link--primary']}`}
+            href={linkDemo}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('portfolio.live')}
+            <IconArrow1 className={styles['project__link-icon']} />
+          </a>
           <a
             className={styles['project__link']}
             href={linkGithub}
@@ -83,54 +144,11 @@ const Project = (props: IProps) => {
             rel="noopener noreferrer"
           >
             <IconGitHub1 className={styles['project__link-icon']} />
-          </a>
-          <a
-            className={styles['project__link']}
-            href={linkDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconLink1 className={styles['project__link-icon']} />
+            {t('portfolio.code')}
           </a>
         </div>
       </div>
-      <div className={styles['project__preview-wrapper']}>
-        <video
-          onClick={openModal}
-          className={styles['project__preview']}
-          src={preview}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
-      </div>
-      {modalRoot &&
-        createPortal(
-          <div
-            className={`${styles['project__modal']} ${isOpen ? styles['open'] : styles['closed']}`}
-            onClick={handleOverlayClick}
-          >
-            <button className={styles['project__close--btn']} onClick={closeModal}>
-              <IconCross1 className={styles['project__close--icon']} />
-            </button>
-            <div className={styles['project__modal-wrapper']} onClick={(e) => e.stopPropagation()}>
-              <video
-                ref={modalVideoRef}
-                className={styles['project__modal-preview']}
-                src={preview}
-                preload="auto"
-                autoPlay
-                playsInline
-                muted
-                loop
-              />
-            </div>
-          </div>,
-          modalRoot
-        )}
-    </div>
+    </article>
   );
 };
 

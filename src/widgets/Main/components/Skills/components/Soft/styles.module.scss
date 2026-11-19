@@ -1,65 +1,133 @@
-.soft__title {
-  @include font(600, 3rem, 1.2);
-  color: rgb(var(--color-white));
+.soft {
+  display: grid;
+  gap: 2.5rem;
+
+  @include respond-up(md) {
+    grid-template-columns: minmax(16rem, 1fr) 1.6fr;
+    align-items: start;
+    gap: 4rem;
+  }
 }
 
-.soft__items {
-  @include flex-column-center;
+.soft__intro {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 
-  @include respond-up(sm) {
-    display: grid;
-    gap: 1rem;
+  @include respond-up(md) {
+    position: sticky;
+    top: 8rem;
   }
 }
 
-.skill {
-  @include flex-column;
-  gap: 2rem;
-  padding: 1.5rem;
-  border-radius: 1.2rem;
-  height: 26rem;
-  width: 11.5rem;
-  background-color: var(--bg-gray);
-  border: 0.1rem solid rgb(var(--color-white), 0.1);
-  box-shadow: var(--box-shadow-white);
+.soft__title {
+  font-size: clamp(1.75rem, 1.25rem + 2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
 
-  transition: all var(--transition);
+.soft__description {
+  max-width: 28rem;
+  color: rgb(var(--color-text));
+}
+
+.soft__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+// Карточки прилипают с небольшим сдвигом — получается «стопка»
+.soft__card {
+  position: sticky;
+  top: calc(6rem + var(--i) * 0.9rem);
+  overflow: hidden;
+
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  min-height: 15rem;
+
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-white), 0.1);
+  background:
+    radial-gradient(28rem 16rem at 100% 0%, rgba(var(--color-accent), 0.25), transparent 65%),
+    linear-gradient(180deg, rgb(var(--color-surface-light)), rgb(var(--color-surface)));
+  box-shadow: 0 -1rem 3rem -1rem rgba(var(--color-black), 0.8);
+  // Отдельный слой: scale из gsap делает композитор, без перерисовки
+  // градиентов, тени и текста на каждом кадре
+  will-change: transform;
+  backface-visibility: hidden;
 
   @include respond-up(md) {
-    height: 24.5rem;
-
-    &:hover {
-      transform: translateY(var(--translateY));
-      box-shadow: var(--box-shadow-accent);
-    }
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+    gap: 2rem;
+    min-height: 17rem;
   }
 
-  @include respond-up(sm) {
-    height: 25rem;
-    width: auto;
+  // Чётные карточки — с фуксиевым акцентом
+  &:nth-child(even) {
+    background:
+      radial-gradient(28rem 16rem at 100% 0%, rgba(var(--color-accent-2), 0.16), transparent 65%),
+      linear-gradient(180deg, rgb(var(--color-surface-light)), rgb(var(--color-surface)));
   }
 }
 
-.skill__title {
-  @include font(600, 1.2rem, 1.2);
+.soft__card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.soft__number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 2vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.soft__card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: rgb(var(--color-white));
+}
 
-  @include respond-up(md) {
-    @include font(600, 1.8rem, 1.2);
+.soft__points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.soft__point {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgb(var(--color-text));
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.75rem;
+    height: 1px;
+    background: rgb(var(--color-accent-light));
   }
 }
 
-.skill__points {
-  @include flex-column;
-  gap: 2rem;
-}
-
-.skill__point {
-  @include font(400, 1rem, 1.2);
-  color: rgb(var(--color-white));
-
-  @include respond-up(md) {
-    @include font(400, 1.2rem, 1.2);
-  }
+// Затемнение карточки, когда на неё наезжает следующая
+.soft__shade {
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--color-bg));
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
 }

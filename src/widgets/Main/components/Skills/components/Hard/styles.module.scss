@@ -1,13 +1,167 @@
 .hard {
-  @include flex-column-between;
+  display: grid;
+  gap: 1rem;
+
+  @include respond-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.hard__card {
+  --spot-x: -100rem;
+  --spot-y: -100rem;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-white), 0.08);
+  background: rgba(var(--color-surface), 0.7);
+
+  transition: border-color var(--transition);
+
+  // Подсветка под курсором
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+      22rem circle at var(--spot-x) var(--spot-y),
+      rgba(var(--color-accent), 0.16),
+      transparent 60%
+    );
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: rgba(var(--color-accent-light), 0.25);
+    }
+  }
+}
+
+// Frontend — самая большая карточка
+.hard__card--wide {
+  @include respond-up(sm) {
+    grid-column: 1 / -1;
+  }
+
+  @include respond-up(lg) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+// Последняя карточка растягивается на всю строку, чтобы в сетке не было дыр
+.hard__card--full {
+  @include respond-up(sm) {
+    grid-column: 1 / -1;
+  }
+}
+
+.hard__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(var(--color-white), 0.08);
+}
+
+.hard__index {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: rgb(var(--color-accent-light));
 }
 
 .hard__title {
-  @include font(600, 3rem, 1.2);
-  color: rgb(var(--color-white));
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 600;
 }
 
-.hard__skills {
-  @include flex-column-start;
-  gap: 2rem;
+.hard__count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: rgb(var(--color-muted));
+  white-space: nowrap;
+}
+
+.hard__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hard__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.hard__group-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--color-muted));
+}
+
+.hard__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hard__chip {
+  padding: 0.5rem 0.9rem;
+  border-radius: 99rem;
+  border: 1px solid rgba(var(--color-white), 0.1);
+  background: rgba(var(--color-white), 0.03);
+
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgb(var(--color-white));
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba(var(--color-accent-light), 0.5);
+      background: rgba(var(--color-accent), 0.18);
+    }
+  }
+}
+
+// В большой карточке группы распределяются по всей высоте, а чипы крупнее
+.hard__card--wide {
+  .hard__groups {
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  @include respond-up(lg) {
+    .hard__chip {
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+    }
+
+    .hard__chips {
+      gap: 0.65rem;
+    }
+  }
 }

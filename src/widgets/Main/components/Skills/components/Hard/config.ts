@@ -4,33 +4,34 @@ const skills = [
     title: 'Frontend',
     groups: [
       {
-        title: 'Markup',
-        items: [{ name: 'HTML' }, { name: 'JSX' }],
-      },
-      {
-        title: 'Styling',
-        items: [
-          { name: 'CSS' },
-          { name: 'Sass' },
-          { name: 'TailwindCSS' },
-          { name: 'Bootstrap' },
-          { name: 'Responsive Design' },
-          { name: 'Flexbox / Grid' },
-        ],
+        title: 'Language',
+        items: [{ name: 'TypeScript' }, { name: 'JavaScript (ES6+)' }],
       },
       {
         title: 'Frameworks & State',
         items: [
           { name: 'React' },
-          { name: 'Next.js' },
-          { name: 'Redux' },
-          { name: 'Redux Toolkit' },
           { name: 'SolidJS' },
+          { name: 'Next.js' },
+          { name: 'Redux Toolkit' },
+          { name: 'React Router' },
+          { name: 'i18next' },
         ],
       },
       {
-        title: 'Language',
-        items: [{ name: 'TypeScript' }, { name: 'JavaScript' }],
+        title: 'Styling',
+        items: [
+          { name: 'HTML5' },
+          { name: 'CSS3' },
+          { name: 'SCSS / Sass' },
+          { name: 'SCSS Modules' },
+          { name: 'Tailwind CSS' },
+          { name: 'Responsive Design' },
+        ],
+      },
+      {
+        title: 'Real-time & Motion',
+        items: [{ name: 'WebSocket' }, { name: 'GSAP' }, { name: 'Figma to code' }],
       },
     ],
   },
@@ -41,20 +42,15 @@ const skills = [
     groups: [
       {
         title: 'Runtime & Framework',
-        items: [{ name: 'Node.js' }, { name: 'Express' }],
+        items: [{ name: 'Node.js' }, { name: 'NestJS' }, { name: 'Express' }],
       },
       {
         title: 'Database',
-        items: [{ name: 'MongoDB' }],
+        items: [{ name: 'PostgreSQL' }, { name: 'Prisma' }, { name: 'SQL' }, { name: 'MongoDB' }],
       },
       {
-        title: 'API',
-        items: [
-          { name: 'REST API' },
-          { name: 'Swagger' },
-          { name: 'Axios' },
-          { name: 'Fetch API' },
-        ],
+        title: 'API & Auth',
+        items: [{ name: 'REST API' }, { name: 'JWT' }, { name: 'Swagger' }, { name: 'Axios' }],
       },
     ],
   },
@@ -63,16 +59,20 @@ const skills = [
     title: 'Other',
     groups: [
       {
-        title: 'Tools',
+        title: 'Tools & Deploy',
         items: [
           { name: 'Git' },
           { name: 'GitHub' },
           { name: 'Vite' },
+          { name: 'Docker' },
           { name: 'Figma' },
-          { name: 'NPM' },
-          { name: 'VS Code' },
-          { name: 'Cursor' },
+          { name: 'Vercel' },
+          { name: 'Render' },
         ],
+      },
+      {
+        title: 'AI-assisted development',
+        items: [{ name: 'Claude Code' }, { name: 'GitHub Copilot' }, { name: 'Cursor' }],
       },
     ],
   },
@@ -83,10 +83,10 @@ const skills = [
       {
         title: 'Language',
         items: [
-          { name: 'English Intermediate' },
-          { name: 'Russian Native' },
           { name: 'Ukrainian Native' },
-          { name: 'Polish Intermediate' },
+          { name: 'Russian Native' },
+          { name: 'Polish Professional' },
+          { name: 'English B1' },
         ],
       },
     ],

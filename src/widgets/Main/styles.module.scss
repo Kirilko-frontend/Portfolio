@@ -1,5 +1,20 @@
 .main {
-  @include flex-column;
-  gap: 2rem;
-  padding-top: 5rem;
+  position: relative;
+}
+
+.main__sheet {
+  position: relative;
+  z-index: 1;
+
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background:
+    radial-gradient(60rem 30rem at 50% 0%, rgba(var(--color-accent), 0.1), transparent 70%),
+    rgb(var(--color-bg));
+  box-shadow:
+    0 -1px 0 rgba(var(--color-white), 0.08),
+    0 -2rem 4rem rgba(var(--color-black), 0.6);
+
+  @include respond-up(md) {
+    border-radius: 3rem 3rem 0 0;
+  }
 }

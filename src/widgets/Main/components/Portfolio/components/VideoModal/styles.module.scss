@@ -1,0 +1,86 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+
+  // Закрытая модалка полностью скрыта (visibility), а не просто прозрачна —
+  // иначе полноэкранный слой постоянно участвует в отрисовке
+  background: rgba(var(--color-bg), 0.94);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.4s var(--ease-out),
+    visibility 0s linear 0.4s;
+}
+
+.modal--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.4s var(--ease-out),
+    visibility 0s;
+
+  .modal__frame {
+    transform: none;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.25rem;
+  right: var(--gutter);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem 0.6rem 1.1rem;
+
+  border-radius: 99rem;
+  border: 1px solid rgba(var(--color-white), 0.15);
+  background: rgba(var(--color-white), 0.06);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(var(--color-white));
+}
+
+.modal__close-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0.35rem;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  fill: rgb(var(--color-white));
+}
+
+.modal__frame {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(100%, 75rem);
+
+  transform: scale(0.94) translateY(2rem);
+  transition: transform 0.6s var(--ease-out);
+}
+
+.modal__video {
+  width: 100%;
+  max-height: 78svh;
+  border-radius: var(--radius-md);
+  background: rgb(var(--color-black));
+  box-shadow: 0 2rem 6rem rgba(var(--color-accent), 0.25);
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(var(--color-white));
+}

@@ -1,0 +1,75 @@
+.marquee {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: clamp(1.5rem, 1rem + 2vw, 3rem);
+  overflow: hidden;
+
+  // Ленты слегка наклонены — выглядит динамичнее
+  rotate: -2deg;
+  margin-inline: -2rem;
+
+  // Края растворяются: статичные градиенты поверх вместо mask-image
+  // (маска на постоянно движущемся слое пересчитывается каждый кадр)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 12%;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(90deg, rgb(var(--color-bg)), transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(270deg, rgb(var(--color-bg)), transparent);
+  }
+}
+
+.marquee__row {
+  display: flex;
+}
+
+.marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.marquee__group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+  padding-right: clamp(1rem, 0.5rem + 2vw, 2.5rem);
+
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.25rem + 6vw, 7.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: rgb(var(--color-white));
+}
+
+.marquee__item--muted {
+  color: rgba(var(--color-white), 0.18);
+}
+
+// Звезда — сплошной цвет вместо градиентного текста (дешевле при постоянном движении)
+.marquee__star {
+  font-size: 0.4em;
+  color: rgb(var(--color-accent-light));
+}

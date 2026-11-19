@@ -3,49 +3,66 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
 
 interface IProps {
-  id: number;
+  index: number;
   role: string;
   company: string;
   period: string;
   stack: string;
   description: string[];
-  delay?: number;
 }
 
-const Block = (props: IProps) => {
-  const { id, role, company, period, stack, description, delay } = props;
+// В переводах стек хранится как «Tech stack : A, B, C»
+const parseStack = (text: string) =>
+  text
+    .slice(text.indexOf(':') + 1)
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+const Block = ({ index, role, company, period, stack, description }: IProps) => {
   const { t } = useTranslation();
 
+  const [from, to = ''] = t(period)
+    .split('–')
+    .map((part) => part.trim());
+
   return (
-    <div key={id} className={`${styles['block']} reveal-item ${delay ? `delay-${delay}` : ''}`}>
-      <div className={styles['block__period-wrapper']}>
-        <p className={styles['block__period']}>{t(period)}</p>
+    <li className={styles['block']} data-timeline-item>
+      <div className={styles['block__period']}>
+        <span className={styles['block__period-to']}>{to}</span>
+        <span className={styles['block__period-from']}>{from} —</span>
       </div>
-      <div className={styles['block__info']}>
-        <p className={styles['block__info-company-role']}>
-          {t(company)} <span>•</span> {t(role)}
-        </p>
-        {stack && (
-          <div className={styles['block__stack']}>
-            {t(stack)
-              .replace('Tech stack :', '')
-              .split(',')
-              .map((tech) => (
-                <span key={tech.trim()} className={styles['block__stack-tag']}>
-                  {tech.trim()}
-                </span>
-              ))}
+
+      <span className={styles['block__node']} data-timeline-node aria-hidden="true" />
+
+      <article className={styles['block__card']} data-timeline-card>
+        <header className={styles['block__header']}>
+          <span className={styles['block__index']}>{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h3 className={styles['block__role']}>{t(role)}</h3>
+            <p className={styles['block__company']}>{t(company)}</p>
           </div>
+        </header>
+
+        {stack && (
+          <ul className={styles['block__stack']}>
+            {parseStack(t(stack)).map((tech) => (
+              <li key={tech} className={styles['block__tag']}>
+                {tech}
+              </li>
+            ))}
+          </ul>
         )}
-      </div>
-      <ul className={styles['block__description']}>
-        {description.map((item) => (
-          <li key={item} className={styles['block__description-item']}>
-            {t(item)}
-          </li>
-        ))}
-      </ul>
-    </div>
+
+        <ul className={styles['block__list']}>
+          {description.map((item) => (
+            <li key={item} className={styles['block__item']} data-timeline-point>
+              {t(item)}
+            </li>
+          ))}
+        </ul>
+      </article>
+    </li>
   );
 };
 

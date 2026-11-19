@@ -1,21 +1,176 @@
 .contact {
-  @include flex-column;
-  gap: 2rem;
+  padding-block: var(--section-space);
+  overflow: hidden;
+}
+
+.contact__eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--color-white));
+
+  span {
+    font-family: var(--font-display);
+    color: rgb(var(--color-accent-light));
+  }
 }
 
 .contact__title {
-  @include font(600, 1.7rem, 1.2);
-  color: rgb(var(--color-white));
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+
+  font-size: clamp(2.25rem, 0.75rem + 7vw, 9rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  transform-origin: 50% 100%;
+}
+
+.contact__title-line {
+  display: block;
+}
+
+.contact__title-line--accent {
+  align-self: flex-end;
+  text-align: right;
+  background: linear-gradient(
+    100deg,
+    rgb(var(--color-accent-light)),
+    rgb(var(--color-accent)) 45%,
+    rgb(var(--color-accent-2))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.contact__grid {
+  display: grid;
+  gap: 3rem;
+  margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+  perspective: 1200px;
 
   @include respond-up(md) {
-    @include font(600, 2rem, 1.2);
-  }
-
-  @include respond-up(lg) {
-    @include font(600, 3rem, 1.2);
+    grid-template-columns: 1fr minmax(24rem, 34rem);
+    align-items: center;
+    gap: 4rem;
   }
 }
 
-.contact__terminal-wrapper {
-  @include flex-center;
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact__description {
+  max-width: 34rem;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  color: rgb(var(--color-text));
+}
+
+.contact__email-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--color-muted));
+}
+
+.contact__email-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+// Почта с подчёркиванием, которое «прорисовывается» при наведении
+.contact__email {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: rgb(var(--color-white));
+  word-break: break-all;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.15em;
+    height: 2px;
+    background: var(--gradient-accent);
+    transform: scaleX(0.25);
+    transform-origin: left;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
+
+.contact__copy {
+  padding: 0.45rem 0.9rem;
+  border-radius: 99rem;
+  border: 1px solid rgba(var(--color-white), 0.15);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(var(--color-white));
+  transition: background-color var(--transition);
+
+  &:hover {
+    background: rgba(var(--color-white), 0.08);
+  }
+}
+
+.contact__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.contact__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.25rem;
+
+  border-radius: 99rem;
+  border: 1px solid rgba(var(--color-white), 0.12);
+  background: rgba(var(--color-white), 0.03);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgb(var(--color-white));
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
+
+  &:hover {
+    border-color: rgba(var(--color-accent-light), 0.5);
+    background: rgba(var(--color-accent), 0.18);
+  }
+}
+
+.contact__social-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: rgb(var(--color-white));
+}
+
+.contact__terminal {
+  transform-origin: 50% 100%;
 }
