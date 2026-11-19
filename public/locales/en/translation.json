@@ -100,5 +100,13 @@
   },
   "contact": {
     "title": "Contact"
+  },
+  "hero": {
+    "status": "Open to work",
+    "location": "Based in Poland",
+    "description": "I'm Kyrylo — I build fast, responsive interfaces with React & TypeScript and bring them to life with motion.",
+    "cta-projects": "View projects",
+    "cta-contact": "Get in touch",
+    "scroll": "Scroll"
   }
 }

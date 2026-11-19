@@ -114,7 +114,9 @@ const Cursor = () => {
   return (
     <div ref={rootRef} className={styles['cursor']} aria-hidden="true">
       <div ref={ringRef} className={styles['cursor__ring']}>
-        <span className={`${styles['cursor__label']} ${label ? styles['cursor__label--visible'] : ''}`}>
+        <span
+          className={`${styles['cursor__label']} ${label ? styles['cursor__label--visible'] : ''}`}
+        >
           {label}
         </span>
       </div>

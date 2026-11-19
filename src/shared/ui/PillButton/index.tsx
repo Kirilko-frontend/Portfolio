@@ -29,9 +29,12 @@ const PillButton = (props: IProps) => {
     className = '',
   } = props;
 
-  const classes = [styles['pill'], styles[`pill--${variant}`], styles[`pill--${size}`], className].join(
-    ' '
-  );
+  const classes = [
+    styles['pill'],
+    styles[`pill--${variant}`],
+    styles[`pill--${size}`],
+    className,
+  ].join(' ');
 
   const content = (
     <>

@@ -99,5 +99,13 @@
   },
   "contact": {
     "title": "Kontakt"
+  },
+  "hero": {
+    "status": "Otwarty na oferty",
+    "location": "Mieszkam w Polsce",
+    "description": "Jestem Kyrylo — tworzę szybkie, responsywne interfejsy w React i TypeScript i ożywiam je animacją.",
+    "cta-projects": "Zobacz projekty",
+    "cta-contact": "Skontaktuj się",
+    "scroll": "Przewiń"
   }
 }

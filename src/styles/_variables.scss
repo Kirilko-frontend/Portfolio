@@ -69,10 +69,10 @@ $theme: (
 
   // Шрифты: Unbounded — заголовки, Manrope — основной текст
   font-display: (
-    'Unbounded Variable',
-    'Unbounded',
-    sans-serif,
-  ),
+      'Unbounded Variable',
+      'Unbounded',
+      sans-serif,
+    ),
   font-family: (
     'Manrope Variable',
     'Manrope',
@@ -92,11 +92,9 @@ $theme: (
   font-size-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.95rem),
   font-size-lg: clamp(1.75rem, 1.2rem + 2.4vw, 3.5rem),
   font-size-xl: clamp(2.75rem, 1rem + 8vw, 9rem),
-
   // Отступы секций
   section-space: clamp(6rem, 4rem + 8vw, 12rem),
   gutter: clamp(1.25rem, 0.75rem + 2.5vw, 4rem),
-
   radius-sm: 0.75rem,
   radius-md: 1.25rem,
   radius-lg: 2rem,
