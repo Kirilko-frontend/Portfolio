@@ -2,9 +2,14 @@
   "header": {
     "nav-about": "O mnie",
     "nav-skills": "Umiejętności",
-    "nav-portfolio": "Portfolio",
-    "nav-works-experience": "Prace i doświadczenie",
-    "nav-contact": "Kontakt"
+    "nav-portfolio": "Projekty",
+    "nav-works-experience": "Doświadczenie",
+    "nav-contact": "Kontakt",
+    "cta": "Napisz do mnie",
+    "menu": "Menu",
+    "close": "Zamknij",
+    "socials": "Social media",
+    "language": "Język"
   },
   "about": {
     "title1": "<span>Cześć!</span> Jestem Kyrylo, pasjonujący się Frontend Developer, specjalizujący się w React i nowoczesnych technologiach webowych.",
@@ -63,7 +68,6 @@
   },
   "experience": {
     "title": "Doświadczenie",
-
     "role1": "Frontend Developer",
     "company1": "Gaming Project (GTA)",
     "period1": "Wrzesień 2025 – Marzec 2026",
@@ -75,7 +79,6 @@
     "item1-description5": "Obsługa zdarzeń i danych w czasie rzeczywistym",
     "item1-description6": "Optymalizacja struktury projektu i architektury",
     "item1-description7": "Dostosowywanie UI do wymagań klienta",
-
     "role2": "Frontend Developer",
     "company2": "Freelance / Private Projects",
     "period2": "Maj 2025 – Grudzień 2025",
@@ -85,7 +88,6 @@
     "item2-description3": "Praca z UI/UX zgodnie z wymaganiami klienta",
     "item2-description4": "Zapewnienie kompatybilności między przeglądarkami",
     "item2-description5": "Kontakt z klientem i wdrażanie poprawek",
-
     "role3": "Frontend Development Course",
     "company3": "Edukacja",
     "period3": "Wrzesień 2024 – Wrzesień 2025",

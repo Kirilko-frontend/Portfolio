@@ -2,9 +2,14 @@
   "header": {
     "nav-about": "Обо мне",
     "nav-skills": "Навыки",
-    "nav-portfolio": "Портфолио",
-    "nav-works-experience": "Работы и опыт",
-    "nav-contact": "Контакты"
+    "nav-portfolio": "Проекты",
+    "nav-works-experience": "Опыт",
+    "nav-contact": "Контакты",
+    "cta": "Связаться",
+    "menu": "Меню",
+    "close": "Закрыть",
+    "socials": "Соцсети",
+    "language": "Язык"
   },
   "about": {
     "title1": "<span>Привет!</span> Я Кирилл, увлечённый фронтенд-разработчик, специализирующийся на React и современных веб-технологиях.",
@@ -63,7 +68,6 @@
   },
   "experience": {
     "title": "Опыт работы",
-
     "role1": "Frontend Developer",
     "company1": "Gaming Project (GTA)",
     "period1": "Сентябрь 2025 – Март 2026",
@@ -75,7 +79,6 @@
     "item1-description5": "Обрабатывал события и данные в реальном времени",
     "item1-description6": "Оптимизировал структуру проекта и улучшал архитектуру",
     "item1-description7": "Адаптировал интерфейс под требования заказчика",
-
     "role2": "Frontend Developer",
     "company2": "Freelance / Private Projects",
     "period2": "Май 2025 – Декабрь 2025",
@@ -85,7 +88,6 @@
     "item2-description3": "Работал с UI/UX по требованиям клиента",
     "item2-description4": "Обеспечивал кроссбраузерную и кроссплатформенную совместимость",
     "item2-description5": "Взаимодействовал с клиентом и вносил правки по фидбеку",
-
     "role3": "Frontend Development Course",
     "company3": "Образование",
     "period3": "Сентябрь 2024 – Сентябрь 2025",

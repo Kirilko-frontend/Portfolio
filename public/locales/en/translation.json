@@ -2,9 +2,14 @@
   "header": {
     "nav-about": "About",
     "nav-skills": "Skills",
-    "nav-portfolio": "Portfolio",
-    "nav-works-experience": "Works & Experience",
-    "nav-contact": "Contact"
+    "nav-portfolio": "Projects",
+    "nav-works-experience": "Experience",
+    "nav-contact": "Contact",
+    "cta": "Let's talk",
+    "menu": "Menu",
+    "close": "Close",
+    "socials": "Socials",
+    "language": "Language"
   },
   "about": {
     "title1": "<span>Hi!</span> I’m Kyrylo, a passionate Frontend Developer specializing in React and modern web technologies.",
@@ -64,7 +69,6 @@
   },
   "experience": {
     "title": "Work Experience",
-
     "role1": "Frontend Developer",
     "company1": "Gaming Project (GTA)",
     "period1": "September 2025 – March 2026",
@@ -76,7 +80,6 @@
     "item1-description5": "Handled real-time events and data updates",
     "item1-description6": "Improved project structure and frontend architecture",
     "item1-description7": "Adjusted UI based on client requirements",
-
     "role2": "Frontend Developer",
     "company2": "Freelance / Private Projects",
     "period2": "May 2025 – December 2025",
@@ -86,7 +89,6 @@
     "item2-description3": "Worked with UI/UX based on client requirements",
     "item2-description4": "Ensured cross-browser and cross-device compatibility",
     "item2-description5": "Communicated with clients and implemented feedback",
-
     "role3": "Frontend Development Course",
     "company3": "Education",
     "period3": "September 2024 – September 2025",
