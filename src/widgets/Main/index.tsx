@@ -17,8 +17,8 @@ const Main = () => {
         <About />
         <Skills />
         <Portfolio />
+        <Experience />
         <div className="container">
-          <Experience />
           <Contact />
         </div>
       </div>

@@ -1,102 +1,137 @@
+// Мобилка: [точка] [карточка], период — над карточкой.
+// Десктоп: [период] [точка] [карточка].
 .block {
-  @include flex-column-center;
-  gap: 2rem;
-  min-width: 11.5rem;
-  min-height: 30rem;
-  border: 0.1rem solid rgb(var(--color-white), 0.1);
-  padding: 2rem;
-  border-radius: 1.2rem;
-  background-color: var(--bg-gray);
-
-  transition:
-    background-color var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition);
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-template-areas:
+    'node period'
+    'node card';
+  column-gap: 1rem;
+  row-gap: 0.75rem;
 
   @include respond-up(md) {
-    min-width: 54rem;
-
-    &:hover {
-      box-shadow: var(--box-shadow-accent-strong);
-      transform: translateY(var(--translateY));
-      background-color: rgba(var(--color-white), 0.2);
-      border-color: rgba(var(--color-accent), 0.4);
-    }
-  }
-
-  @include respond-up(lg) {
-    min-width: 35rem;
-    min-height: 36rem;
-    justify-content: flex-start;
-  }
-}
-
-.block__period-wrapper {
-  @include flex-center;
-
-  padding: 1rem;
-  width: 11rem;
-  height: 4rem;
-  border-radius: 99rem;
-
-  background: linear-gradient(
-    135deg,
-    rgba(var(--color-accent), 0.2),
-    rgba(var(--color-accent), 0.05)
-  );
-
-  border: 0.1rem solid rgba(var(--color-accent), 0.3);
-
-  backdrop-filter: blur(0.6rem);
-
-  @include respond-up(md) {
-    width: 30rem;
-  }
-
-  @include respond-up(lg) {
-    width: 18rem;
+    grid-template-columns: minmax(14rem, 1fr) 4rem 2fr;
+    grid-template-areas: 'period node card';
+    align-items: start;
+    column-gap: 0;
   }
 }
 
 .block__period {
-  @include font(500, 0.7rem, 1.2);
-  color: rgb(var(--color-white));
-  letter-spacing: 0;
-  white-space: nowrap;
+  grid-area: period;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.25rem;
 
   @include respond-up(md) {
-    @include font(500, 1.6rem, 1.2);
-  }
-
-  @include respond-up(lg) {
-    @include font(500, 1.1rem, 1.2);
-    letter-spacing: 0.03em;
+    position: sticky;
+    top: 40vh;
+    align-items: flex-end;
+    padding-right: 2.5rem;
+    text-align: right;
   }
 }
 
-.block__info {
-  @include flex-column-center;
+.block__period-to {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 2vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: rgb(var(--color-white));
+}
+
+.block__period-from {
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-muted));
+}
+
+// Точка на линии таймлайна; загорается, когда до неё доходит заполнение
+.block__node {
+  grid-area: node;
+  position: relative;
+  justify-self: center;
+  margin-top: 0.4rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--color-white), 0.2);
+  background: rgb(var(--color-bg));
+
+  transition:
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    background-color 0.5s var(--ease-out);
+
+  @include respond-up(md) {
+    position: sticky;
+    top: calc(40vh + 0.5rem);
+    margin-top: 0.75rem;
+  }
+
+  &:global(.is-active) {
+    border-color: rgb(var(--color-accent-light));
+    background: rgb(var(--color-accent-2));
+    box-shadow:
+      0 0 0 0.35rem rgba(var(--color-accent), 0.2),
+      0 0 1.25rem rgb(var(--color-accent-2));
+  }
+}
+
+.block__card {
+  grid-area: card;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-white), 0.08);
+  background:
+    radial-gradient(30rem 15rem at 100% 0%, rgba(var(--color-accent), 0.12), transparent 70%),
+    rgba(var(--color-surface), 0.8);
+
+  transition: border-color var(--transition);
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: rgba(var(--color-accent-light), 0.25);
+    }
+  }
+}
+
+.block__header {
+  display: flex;
+  align-items: flex-start;
   gap: 1rem;
-  min-width: 10rem;
-
-  @include respond-up(lg) {
-    min-width: auto;
-  }
 }
 
-.block__info-company-role {
-  @include font(600, 1.4rem, 1.2);
+.block__index {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: var(--gradient-accent);
+
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
   color: rgb(var(--color-white));
-
-  @include respond-up(md) {
-    @include font(600, 1.5rem, 1.2);
-  }
 }
 
-.block__info-stack {
-  @include font(400, 1rem, 1.2);
-  color: rgba(var(--color-white), 0.6);
+.block__role {
+  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.block__company {
+  margin-top: 0.2rem;
+  font-size: var(--font-size-sm);
+  color: rgb(var(--color-accent-light));
 }
 
 .block__stack {
@@ -105,45 +140,41 @@
   gap: 0.4rem;
 }
 
-.block__stack-tag {
-  padding: 0.3rem 0.7rem;
-  border-radius: 0.5rem;
-  background: rgba(var(--color-accent), 0.1);
-  color: rgba(var(--color-white), 0.7);
-  border: 0.1rem solid rgba(var(--color-accent), 0.2);
-  font-size: 1rem;
-  transition:
-    color var(--transition),
-    box-shadow var(--transition);
+.block__tag {
+  padding: 0.3rem 0.75rem;
+  border-radius: 99rem;
+  border: 1px solid rgba(var(--color-white), 0.1);
+  background: rgba(var(--color-white), 0.03);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgb(var(--color-text));
 }
 
-.block__description {
-  @include flex-column;
-  gap: 0.8rem;
-}
+.block__list {
+  display: grid;
+  gap: 0.6rem;
 
-.block__description-item {
-  @include font(400, 1rem, 1.4);
-  position: relative;
-  padding-left: 1.2rem;
-  color: rgba(var(--color-white), 0.85);
-  width: 100%;
-
-  @include respond-up(md) {
-    @include font(400, 1.2rem, 1.4);
+  @include respond-up(lg) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
   }
 }
 
-.block__description-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
+.block__item {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: rgb(var(--color-text));
 
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-
-  background: rgb(var(--color-accent));
-  box-shadow: var(--box-shadow-accent);
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--gradient-accent);
+  }
 }
