@@ -11,6 +11,9 @@ interface IProps {
 /**
  * Бесконечные бегущие строки. Скорость зависит от скорости скролла,
  * а при скролле вверх направление разворачивается.
+ *
+ * Производительность: анимация стоит на паузе, пока лента вне экрана,
+ * а скорость меняется через один плавный tween (без создания новых tween на каждый скролл).
  */
 const Marquee = ({ rows }: IProps) => {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -27,30 +30,36 @@ const Marquee = ({ rows }: IProps) => {
           return gsap.fromTo(
             track,
             { xPercent: isReversed ? -50 : 0 },
-            { xPercent: isReversed ? 0 : -50, duration: 40, ease: 'none', repeat: -1 }
+            { xPercent: isReversed ? 0 : -50, duration: 40, ease: 'none', repeat: -1, paused: true }
           );
         });
 
+        // Общая скорость всех лент: 1 — базовая, со знаком направления
+        const speed = { value: 1 };
+        const applySpeed = () => loops.forEach((loop) => loop.timeScale(speed.value));
+
         let direction = 1;
+        let speedTween: gsap.core.Timeline | null = null;
 
         ScrollTrigger.create({
           trigger: rootRef.current,
           start: 'top bottom',
           end: 'bottom top',
+          onToggle: (self) => loops.forEach((loop) => (self.isActive ? loop.play() : loop.pause())),
           onUpdate: (self) => {
             direction = self.direction;
-            const boost = gsap.utils.clamp(1, 8, 1 + Math.abs(self.getVelocity()) / 400);
+            const boost = gsap.utils.clamp(1, 6, 1 + Math.abs(self.getVelocity()) / 500);
 
-            loops.forEach((loop) => {
-              gsap.to(loop, {
-                timeScale: boost * direction,
-                duration: 0.2,
-                overwrite: true,
-                onComplete: () => {
-                  gsap.to(loop, { timeScale: direction, duration: 1.2, ease: 'power2.out' });
-                },
+            speedTween?.kill();
+            speedTween = gsap
+              .timeline()
+              .to(speed, { value: boost * direction, duration: 0.25, onUpdate: applySpeed })
+              .to(speed, {
+                value: direction,
+                duration: 1.2,
+                ease: 'power2.out',
+                onUpdate: applySpeed,
               });
-            });
           },
         });
       });

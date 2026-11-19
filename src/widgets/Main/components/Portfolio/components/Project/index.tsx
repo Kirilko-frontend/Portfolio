@@ -38,22 +38,44 @@ const Project = (props: IProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { description: text, stack } = parseDescription(description);
 
-  // Видео проигрывается только когда карточка на экране — экономим CPU и батарею
+  // Производительность: видео (сейчас 4K) не грузится, пока карточка далеко от экрана,
+  // и проигрывается только пока его видно
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const observer = new IntersectionObserver(
+    let isVisible = false;
+    const tryPlay = () => {
+      if (isVisible && video.getAttribute('src')) video.play().catch(() => {});
+    };
+
+    const loader = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
+        if (!entry.isIntersecting) return;
+        video.src = preview;
+        loader.disconnect();
+        tryPlay();
       },
-      { threshold: 0.2 }
+      { rootMargin: '50% 50%' }
     );
 
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
+    const player = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) tryPlay();
+        else video.pause();
+      },
+      { threshold: 0.25 }
+    );
+
+    loader.observe(video);
+    player.observe(video);
+
+    return () => {
+      loader.disconnect();
+      player.disconnect();
+    };
+  }, [preview]);
 
   return (
     <article className={styles['project']} data-project>
@@ -67,12 +89,10 @@ const Project = (props: IProps) => {
         <video
           ref={videoRef}
           className={styles['project__video']}
-          // #t=0.1 — браузер покажет первый кадр как обложку, пока видео не запустилось
-          src={`${preview}#t=0.1`}
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="none"
           data-parallax
         />
         <span className={styles['project__shade']} aria-hidden="true" />

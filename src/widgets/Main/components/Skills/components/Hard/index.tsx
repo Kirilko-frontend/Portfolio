@@ -38,14 +38,15 @@ const Hard = () => {
     { scope: rootRef }
   );
 
-  // «Прожектор»: подсветка карточки следует за курсором
+  // «Прожектор»: подсветка следует за курсором.
+  // Производительность: обновляем только карточку под курсором, а не все сразу
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const cards = rootRef.current?.querySelectorAll<HTMLElement>(`.${styles['hard__card']}`);
-    cards?.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
-      card.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
-    });
+    const card = (e.target as HTMLElement).closest<HTMLElement>(`.${styles['hard__card']}`);
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
   };
 
   return (

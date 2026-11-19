@@ -104,9 +104,9 @@ const Hero = () => {
             },
             defaults: { ease: 'none' },
           })
-          .to(`.${styles['hero__inner']}`, { scale: 0.88, yPercent: -6, filter: 'blur(6px)' }, 0)
+          .to(`.${styles['hero__inner']}`, { scale: 0.9, yPercent: -6 }, 0)
           .to(`.${styles['hero__dim']}`, { opacity: 0.85 }, 0)
-          .to(orbRef.current, { yPercent: 40, scale: 1.4 }, 0);
+          .to(orbRef.current, { yPercent: 30 }, 0);
       });
 
       // Орб слегка следует за мышью

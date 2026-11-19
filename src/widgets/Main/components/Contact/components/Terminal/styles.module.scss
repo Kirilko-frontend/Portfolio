@@ -14,29 +14,6 @@
   color: rgb(var(--color-white));
 }
 
-// «Луч» сканирования
-.terminal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent, rgba(var(--color-accent), 0.07), transparent);
-  animation: terminal-scan 4s ease-in-out infinite;
-}
-
-@keyframes terminal-scan {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(30rem);
-  }
-}
-
 .terminal__bar {
   position: relative;
   display: flex;

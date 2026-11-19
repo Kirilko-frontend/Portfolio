@@ -8,7 +8,6 @@
   --glare-x: 50%;
   --glare-y: 0%;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 
 // Лицевая и обратная стороны лежат в одной ячейке grid — высота карточки = высота большей стороны
@@ -58,10 +57,9 @@
   pointer-events: none;
   background: radial-gradient(
     28rem circle at var(--glare-x) var(--glare-y),
-    rgba(var(--color-white), 0.1),
+    rgba(var(--color-white), 0.05),
     transparent 40%
   );
-  mix-blend-mode: overlay;
 }
 
 .card__top {

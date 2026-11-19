@@ -30,10 +30,11 @@ const Cursor = () => {
 
       gsap.set([ring, dot], { xPercent: -50, yPercent: -50, autoAlpha: 0 });
 
-      const ringX = gsap.quickTo(ring, 'x', { duration: 0.55, ease: 'power3.out' });
-      const ringY = gsap.quickTo(ring, 'y', { duration: 0.55, ease: 'power3.out' });
-      const dotX = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3.out' });
-      const dotY = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3.out' });
+      // Кольцо догоняет мышь с лёгкой инерцией, точка следует мгновенно — курсор не «отстаёт»
+      const ringX = gsap.quickTo(ring, 'x', { duration: 0.25, ease: 'power3.out' });
+      const ringY = gsap.quickTo(ring, 'y', { duration: 0.25, ease: 'power3.out' });
+      const dotX = gsap.quickSetter(dot, 'x', 'px');
+      const dotY = gsap.quickSetter(dot, 'y', 'px');
 
       let isVisible = false;
 

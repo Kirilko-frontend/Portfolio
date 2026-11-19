@@ -16,42 +16,30 @@
 
 .hero__orb {
   position: absolute;
-  top: 10%;
-  right: -10%;
-  width: clamp(22rem, 55vw, 56rem);
+  top: -10%;
+  right: -25%;
+  width: clamp(28rem, 70vw, 70rem);
   aspect-ratio: 1;
-  border-radius: 50%;
 
+  // Производительность: мягкость даёт сам градиент, без filter: blur и без вечного вращения
   background:
-    radial-gradient(circle at 30% 30%, rgba(var(--color-accent-2), 0.55), transparent 55%),
-    radial-gradient(circle at 70% 60%, rgba(var(--color-accent), 0.7), transparent 60%);
-  filter: blur(80px);
-  opacity: 0.55;
-
-  animation: orb-spin 18s linear infinite;
-  will-change: transform;
+    radial-gradient(circle at 40% 40%, rgba(var(--color-accent-2), 0.28), transparent 45%),
+    radial-gradient(circle at 60% 55%, rgba(var(--color-accent), 0.38), transparent 60%);
 
   @include respond-up(md) {
-    top: -5%;
-    right: 0;
+    top: -20%;
+    right: -10%;
   }
 }
 
-@keyframes orb-spin {
-  to {
-    rotate: 360deg;
-  }
-}
-
-// Тонкая сетка, которая растворяется к краям
+// Тонкая сетка, растворяется к краям (виньетка поверх вместо дорогого mask-image)
 .hero__grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(var(--color-white), 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--color-white), 0.04) 1px, transparent 1px);
-  background-size: 5rem 5rem;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, transparent 20%, rgb(var(--color-bg)) 75%),
+    linear-gradient(rgba(var(--color-white), 0.04) 1px, transparent 1px) 0 0 / 5rem 5rem,
+    linear-gradient(90deg, rgba(var(--color-white), 0.04) 1px, transparent 1px) 0 0 / 5rem 5rem;
 }
 
 // Затемнение при уходе секции (управляется скроллом)
@@ -98,8 +86,7 @@
 
   border-radius: 99rem;
   border: 1px solid rgba(var(--color-white), 0.1);
-  background: rgba(var(--color-white), 0.04);
-  backdrop-filter: blur(0.5rem);
+  background: rgba(var(--color-surface), 0.7);
 
   font-size: var(--font-size-sm);
   font-weight: 500;

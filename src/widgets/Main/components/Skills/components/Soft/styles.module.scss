@@ -55,8 +55,6 @@
     linear-gradient(180deg, rgb(var(--color-surface-light)), rgb(var(--color-surface)));
   box-shadow: 0 -1rem 3rem -1rem rgba(var(--color-black), 0.8);
 
-  will-change: transform;
-
   @include respond-up(md) {
     grid-template-columns: 1fr 1.2fr;
     align-items: start;

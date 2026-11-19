@@ -7,18 +7,25 @@
   place-items: center;
   padding: var(--gutter);
 
-  background: rgba(var(--color-bg), 0.85);
-  backdrop-filter: blur(1.25rem);
-  -webkit-backdrop-filter: blur(1.25rem);
+  // Закрытая модалка полностью скрыта (visibility), а не просто прозрачна —
+  // иначе полноэкранный слой постоянно участвует в отрисовке
+  background: rgba(var(--color-bg), 0.94);
 
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.4s var(--ease-out);
+  transition:
+    opacity 0.4s var(--ease-out),
+    visibility 0s linear 0.4s;
 }
 
 .modal--open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition:
+    opacity 0.4s var(--ease-out),
+    visibility 0s;
 
   .modal__frame {
     transform: none;

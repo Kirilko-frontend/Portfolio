@@ -40,26 +40,45 @@ const Header = () => {
         .to(header, { yPercent: -110, duration: 0.5, ease: 'power3.inOut', paused: true })
         .reverse();
 
-      // Активная секция — та, что пересекает середину экрана
-      const updateActiveSection = () => {
-        const middle = window.innerHeight / 2;
-        let current = '';
+      // Активная секция — та, что пересекает середину экрана.
+      // Производительность: границы секций считаются только при refresh (загрузка/ресайз),
+      // а на скролле сравниваются числа — без getBoundingClientRect на каждом кадре.
+      let ranges: { href: string; top: number; bottom: number }[] = [];
+      let current = '';
 
-        config.navItems.forEach((item) => {
+      const measureSections = () => {
+        ranges = config.navItems.flatMap((item) => {
           const rect = document.querySelector(item.href)?.getBoundingClientRect();
-          if (rect && rect.top <= middle && rect.bottom >= middle) current = item.href;
+          if (!rect) return [];
+          return [
+            {
+              href: item.href,
+              top: rect.top + window.scrollY,
+              bottom: rect.bottom + window.scrollY,
+            },
+          ];
         });
+      };
 
-        setActiveSection(current);
+      const updateActiveSection = (scroll: number) => {
+        const middle = scroll + window.innerHeight / 2;
+        const next =
+          ranges.find((range) => range.top <= middle && range.bottom >= middle)?.href ?? '';
+        if (next === current) return;
+        current = next;
+        setActiveSection(next);
       };
 
       ScrollTrigger.create({
         start: 0,
         end: 'max',
         refreshPriority: -1,
-        onRefresh: updateActiveSection,
+        onRefresh: (self) => {
+          measureSections();
+          updateActiveSection(self.scroll());
+        },
         onUpdate: (self) => {
-          updateActiveSection();
+          updateActiveSection(self.scroll());
           header.classList.toggle(styles['header--scrolled'], self.scroll() > 40);
           if (isMenuOpenRef.current) return;
 

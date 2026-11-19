@@ -53,8 +53,7 @@
 .pill--ghost {
   color: rgb(var(--color-white));
   border: 1px solid rgba(var(--color-white), 0.2);
-  background: rgba(var(--color-white), 0.03);
-  backdrop-filter: blur(0.5rem);
+  background: rgba(var(--color-surface), 0.6);
 
   .pill__fill {
     background: rgb(var(--color-white));
