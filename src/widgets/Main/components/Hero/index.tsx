@@ -1,11 +1,11 @@
 import { useRef, type MouseEvent } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useIntroDone } from '@shared/context/IntroContext';
 import { gsap, MEDIA, ScrollTrigger, SplitText, useGSAP } from '@shared/lib/gsap';
 import { scrollTo } from '@shared/utils/scrollTo';
 import Magnetic from '@shared/ui/Magnetic';
 import PillButton from '@shared/ui/PillButton';
+import StableText from '@shared/ui/StableText';
 
 import { IconArrow1 } from '@shared/icons';
 
@@ -14,7 +14,6 @@ import avatar from '/avatar/avatar.png';
 import styles from './styles.module.scss';
 
 const Hero = () => {
-  const { t } = useTranslation();
   const isIntroDone = useIntroDone();
 
   const rootRef = useRef<HTMLElement>(null);
@@ -143,9 +142,9 @@ const Hero = () => {
           <div className={styles['hero__meta']}>
             <p className={styles['hero__status']}>
               <span className={styles['hero__status-dot']} aria-hidden="true" />
-              {t('hero.status')}
+              <StableText k="hero.status" />
             </p>
-            <p className={styles['hero__location']}>{t('hero.location')}</p>
+            <StableText as="p" k="hero.location" className={styles['hero__location']} />
           </div>
 
           <h1 ref={titleRef} className={styles['hero__title']}>
@@ -167,7 +166,7 @@ const Hero = () => {
           </h1>
 
           <div className={styles['hero__bottom']}>
-            <p className={styles['hero__description']}>{t('hero.description')}</p>
+            <StableText as="p" k="hero.description" className={styles['hero__description']} />
 
             <div className={styles['hero__actions']}>
               <Magnetic>
@@ -177,7 +176,7 @@ const Hero = () => {
                   icon={<IconArrow1 />}
                   onClick={(e) => handleNavigate(e, '#portfolio')}
                 >
-                  {t('hero.cta-projects')}
+                  <StableText k="hero.cta-projects" align="center" />
                 </PillButton>
               </Magnetic>
               <Magnetic>
@@ -187,7 +186,7 @@ const Hero = () => {
                   variant="ghost"
                   onClick={(e) => handleNavigate(e, '#contact')}
                 >
-                  {t('hero.cta-contact')}
+                  <StableText k="hero.cta-contact" align="center" />
                 </PillButton>
               </Magnetic>
             </div>
@@ -197,7 +196,7 @@ const Hero = () => {
               className={styles['hero__scroll']}
               onClick={(e) => handleNavigate(e, '#about')}
             >
-              <span>{t('hero.scroll')}</span>
+              <StableText k="hero.scroll" />
               <span className={styles['hero__scroll-line']} aria-hidden="true" />
             </a>
           </div>

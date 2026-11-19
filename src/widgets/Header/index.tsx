@@ -11,6 +11,7 @@ import { lockScroll, unlockScroll } from '@shared/lib/lenis';
 import { scrollTo } from '@shared/utils/scrollTo';
 import Magnetic from '@shared/ui/Magnetic';
 import PillButton from '@shared/ui/PillButton';
+import StableText from '@shared/ui/StableText';
 
 import { IconArrow1, Logo } from '@shared/icons';
 
@@ -221,7 +222,9 @@ const Header = () => {
                     onClick={(e) => handleNavigate(e, item.href)}
                   >
                     <span className={styles['roll']} data-text={t(item.name)}>
-                      <span>{t(item.name)}</span>
+                      <span>
+                        <StableText k={item.name} align="center" />
+                      </span>
                     </span>
                   </a>
                 </li>
@@ -238,7 +241,7 @@ const Header = () => {
                 onClick={(e) => handleNavigate(e, '#contact')}
                 icon={<IconArrow1 />}
               >
-                {t('header.cta')}
+                <StableText k="header.cta" align="center" />
               </PillButton>
             </Magnetic>
           </div>

@@ -1,3 +1,5 @@
+import { languages } from '@shared/config/languages';
+
 const navItems = [
   {
     id: 1,
@@ -26,7 +28,6 @@ const navItems = [
   },
 ];
 
-const languages = ['ru', 'en', 'ua', 'pl'];
 
 export default {
   navItems,
