@@ -16,8 +16,8 @@ const Main = () => {
       <div className={styles['main__sheet']}>
         <About />
         <Skills />
+        <Portfolio />
         <div className="container">
-          <Portfolio />
           <Experience />
           <Contact />
         </div>

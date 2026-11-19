@@ -78,7 +78,17 @@
     "project3-description": "Responsywna strona z użyciem zmiennych i mixinów SCSS do layoutu; stos technologii: HTML, SCSS, JavaScript",
     "date1": "Wrzesień 2025",
     "date2": "Lipiec 2025",
-    "date3": "Październik 2025"
+    "date3": "Październik 2025",
+    "eyebrow": "Wybrane prace",
+    "heading": "Projekty, z których jestem dumny",
+    "code": "Kod",
+    "live": "Demo",
+    "play": "Play",
+    "close": "Zamknij",
+    "stack": "Stack",
+    "more-title": "Chcesz zobaczyć więcej?",
+    "more-text": "Wszystkie moje projekty i eksperymenty są na GitHub.",
+    "more-cta": "Otwórz GitHub"
   },
   "experience": {
     "title": "Doświadczenie",

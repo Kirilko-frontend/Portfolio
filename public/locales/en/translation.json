@@ -79,7 +79,17 @@
     "project3-description": "Responsive website using SCSS variables and mixins for layout; tech stack: HTML, SCSS, JavaScript",
     "date1": "September 2025",
     "date2": "July 2025",
-    "date3": "October 2025"
+    "date3": "October 2025",
+    "eyebrow": "Selected work",
+    "heading": "Projects I'm proud of",
+    "code": "Code",
+    "live": "Live demo",
+    "play": "Play",
+    "close": "Close",
+    "stack": "Stack",
+    "more-title": "Want to see more?",
+    "more-text": "All my projects and experiments live on GitHub.",
+    "more-cta": "Open GitHub"
   },
   "experience": {
     "title": "Work Experience",
