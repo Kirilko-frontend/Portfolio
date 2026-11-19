@@ -84,7 +84,6 @@ const Project = (props: IProps) => {
         type="button"
         className={styles['project__media']}
         onClick={onOpen}
-        data-cursor={t('portfolio.play')}
         aria-label={`${t('portfolio.play')}: ${title}`}
       >
         <span className={styles['project__parallax']} data-parallax>
@@ -99,6 +98,10 @@ const Project = (props: IProps) => {
           />
         </span>
         <span className={styles['project__shade']} aria-hidden="true" />
+        <span className={styles['project__play']} aria-hidden="true">
+          <span className={styles['project__play-icon']} />
+          {t('portfolio.play')}
+        </span>
       </button>
 
       <div className={styles['project__info']}>
@@ -107,6 +110,7 @@ const Project = (props: IProps) => {
             {String(index + 1).padStart(2, '0')}
             <span>/{String(total).padStart(2, '0')}</span>
           </span>
+          <span className={styles['project__divider']} aria-hidden="true" />
           <span className={styles['project__date']}>{t(date)}</span>
         </div>
 
