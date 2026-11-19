@@ -54,6 +54,10 @@
     radial-gradient(28rem 16rem at 100% 0%, rgba(var(--color-accent), 0.25), transparent 65%),
     linear-gradient(180deg, rgb(var(--color-surface-light)), rgb(var(--color-surface)));
   box-shadow: 0 -1rem 3rem -1rem rgba(var(--color-black), 0.8);
+  // Отдельный слой: scale из gsap делает композитор, без перерисовки
+  // градиентов, тени и текста на каждом кадре
+  will-change: transform;
+  backface-visibility: hidden;
 
   @include respond-up(md) {
     grid-template-columns: 1fr 1.2fr;
@@ -125,4 +129,5 @@
   background: rgb(var(--color-bg));
   opacity: 0;
   pointer-events: none;
+  will-change: opacity;
 }
