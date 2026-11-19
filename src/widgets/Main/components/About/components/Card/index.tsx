@@ -132,7 +132,6 @@ const Card = ({ className = '' }: IProps) => {
                 type="button"
                 className={styles['card__flip']}
                 onClick={toggleFlip}
-                data-cursor="Flip"
                 tabIndex={isFlipped ? -1 : 0}
               >
                 {t('about.card-button')} ↻
@@ -179,7 +178,6 @@ const Card = ({ className = '' }: IProps) => {
                 type="button"
                 className={styles['card__flip']}
                 onClick={toggleFlip}
-                data-cursor="Flip"
                 tabIndex={isFlipped ? 0 : -1}
               >
                 {t('about.card-button')} ↻

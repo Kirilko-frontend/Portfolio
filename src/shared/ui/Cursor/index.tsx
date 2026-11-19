@@ -4,18 +4,17 @@ import { gsap, useGSAP } from '@shared/lib/gsap';
 
 import styles from './styles.module.scss';
 
-const INTERACTIVE = 'a, button, [data-cursor]';
+const INTERACTIVE = 'a, button';
 
 /**
  * Кастомный курсор: точка + кольцо с инерцией.
- * На ссылках/кнопках кольцо увеличивается, у элементов с data-cursor="Текст" показывает подпись.
+ * На ссылках/кнопках кольцо увеличивается и подсвечивается.
  * Работает только на устройствах с мышью.
  */
 const Cursor = () => {
   const rootRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
-  const [label, setLabel] = useState('');
   const [isEnabled] = useState(
     () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
   );
@@ -54,13 +53,10 @@ const Cursor = () => {
         const target = (e.target as HTMLElement).closest<HTMLElement>(INTERACTIVE);
         if (!target) return;
 
-        const text = target.dataset.cursor ?? '';
-        setLabel(text);
-
         gsap.to(ring, {
-          scale: text ? 3.2 : 1.8,
-          backgroundColor: text ? 'rgba(139, 92, 246, 0.9)' : 'rgba(139, 92, 246, 0.15)',
-          borderColor: text ? 'rgba(139, 92, 246, 0)' : 'rgba(196, 181, 253, 0.8)',
+          scale: 1.8,
+          backgroundColor: 'rgba(139, 92, 246, 0.15)',
+          borderColor: 'rgba(196, 181, 253, 0.8)',
           duration: 0.4,
           ease: 'power3.out',
         });
@@ -72,7 +68,6 @@ const Cursor = () => {
         const to = (e.relatedTarget as HTMLElement | null)?.closest?.(INTERACTIVE);
         if (!from || from === to) return;
 
-        setLabel('');
         gsap.to(ring, {
           scale: 1,
           backgroundColor: 'rgba(139, 92, 246, 0)',
@@ -114,13 +109,7 @@ const Cursor = () => {
 
   return (
     <div ref={rootRef} className={styles['cursor']} aria-hidden="true">
-      <div ref={ringRef} className={styles['cursor__ring']}>
-        <span
-          className={`${styles['cursor__label']} ${label ? styles['cursor__label--visible'] : ''}`}
-        >
-          {label}
-        </span>
-      </div>
+      <div ref={ringRef} className={styles['cursor__ring']} />
       <div ref={dotRef} className={styles['cursor__dot']} />
     </div>
   );
