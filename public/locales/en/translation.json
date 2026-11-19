@@ -66,7 +66,11 @@
       "responsibility-description-1": "Deliver tasks on time and reliably",
       "responsibility-description-2": "Proactively communicate blockers or issues",
       "responsibility-description-3": "Take ownership and accountability for tasks"
-    }
+    },
+    "eyebrow": "Skills",
+    "heading": "Tools I use to build things",
+    "soft-description": "Code is only half of the job. This is how I work with people, tasks and myself.",
+    "items": "items"
   },
   "portfolio": {
     "title": "Portfolio",

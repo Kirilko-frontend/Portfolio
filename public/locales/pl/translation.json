@@ -65,7 +65,11 @@
       "responsibility-description-1": "Wykonywać zadania terminowo i niezawodnie",
       "responsibility-description-2": "Proaktywnie zgłaszać blokady lub problemy",
       "responsibility-description-3": "Brać odpowiedzialność za realizację zadań"
-    }
+    },
+    "eyebrow": "Umiejętności",
+    "heading": "Narzędzia, z którymi pracuję",
+    "soft-description": "Kod to tylko połowa pracy. Tak pracuję z ludźmi, zadaniami i sobą.",
+    "items": "szt."
   },
   "portfolio": {
     "title": "Portfolio",
