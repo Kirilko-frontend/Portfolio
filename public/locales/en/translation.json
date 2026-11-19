@@ -26,7 +26,17 @@
     "fun-fact": "Fun fact : Loves pixel-perfect design",
     "card-back-title": "Frontend card ID",
     "card-back-text": "My social media and contact information",
-    "card-button": "Flip card"
+    "card-button": "Flip card",
+    "eyebrow": "About me",
+    "heading": "A developer who sweats the details",
+    "manifesto": "I turn ideas and mockups into fast, accessible and lively interfaces. I care about every pixel, every transition and every millisecond — because details are what people feel first.",
+    "stat-years": "Years of experience",
+    "stat-tech": "Technologies & tools",
+    "stat-languages": "Languages I speak",
+    "card-id": "Dev ID",
+    "card-name": "Kyrylo Kakulia",
+    "card-role": "Frontend Developer",
+    "card-socials": "Find me online"
   },
   "skills": {
     "hard-title": "Hard Skills",

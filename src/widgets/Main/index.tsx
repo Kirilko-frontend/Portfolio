@@ -14,8 +14,8 @@ const Main = () => {
 
       {/* «Лист», который при скролле наезжает на закреплённый Hero */}
       <div className={styles['main__sheet']}>
+        <About />
         <div className="container">
-          <About />
           <Skills />
           <Portfolio />
           <Experience />

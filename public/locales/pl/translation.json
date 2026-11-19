@@ -25,7 +25,17 @@
     "fun-fact": "Ciekawostka: Uwielbia pixel-perfect design",
     "card-back-title": "ID karty frontend",
     "card-back-text": "Moje media społecznościowe i informacje kontaktowe",
-    "card-button": "Odwróć kartę"
+    "card-button": "Odwróć kartę",
+    "eyebrow": "O mnie",
+    "heading": "Programista, który kocha detale",
+    "manifesto": "Zamieniam pomysły i makiety w szybkie, dostępne i żywe interfejsy. Dbam o każdy piksel, każde przejście i każdą milisekundę — bo to detale ludzie czują najpierw.",
+    "stat-years": "Lata doświadczenia",
+    "stat-tech": "Technologii i narzędzi",
+    "stat-languages": "Języki, którymi mówię",
+    "card-id": "Dev ID",
+    "card-name": "Kyrylo Kakulia",
+    "card-role": "Frontend Developer",
+    "card-socials": "Znajdziesz mnie tu"
   },
   "skills": {
     "hard-title": "Umiejętności twarde",

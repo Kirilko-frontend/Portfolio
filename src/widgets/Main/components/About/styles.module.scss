@@ -1,53 +1,105 @@
 .about {
-  @include flex-column();
-  gap: 5rem;
+  padding-top: var(--section-space);
+}
+
+.about__grid {
+  display: grid;
+  gap: clamp(3rem, 2rem + 4vw, 6rem);
+  margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+
+  @include respond-up(md) {
+    grid-template-columns: minmax(20rem, 26rem) 1fr;
+    align-items: start;
+  }
 
   @include respond-up(lg) {
-    @include flex-center;
-    flex-direction: row;
+    grid-template-columns: 28rem 1fr;
+    gap: 8rem;
   }
 }
 
-.about__description {
-  @include flex-column-start;
-  gap: 0.5rem;
-  min-height: 34rem;
+// На десктопе карточка «прилипает», пока справа скроллится текст
+.about__card-col {
+  display: flex;
+  justify-content: center;
+  order: 2;
 
-  @include respond-up(lg) {
-    min-width: 47rem;
-    min-height: 35rem;
+  @include respond-up(md) {
+    position: sticky;
+    top: 7rem;
+    order: 0;
   }
 }
 
-.about__description-title {
-  @include font(400, 1.2rem, 1.2);
+.about__text-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+}
+
+.about__manifesto {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 3rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   color: rgb(var(--color-white));
+}
 
-  span {
-    color: rgb(var(--color-accent-light));
-    text-shadow: 0 0 1.4rem rgba(var(--color-accent), 0.8);
-  }
+.about__bio {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  color: rgb(var(--color-text));
 
-  @include respond-up(sm) {
-    @include font(400, 2rem, 1.2);
+  @include respond-up(lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
-.cursor {
-  display: inline-block;
-  width: 1ch;
-  color: rgb(var(--color-accent));
-  animation: blink 1s steps(2, start) infinite;
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(var(--color-white), 0.1);
 }
 
-@keyframes blink {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
+.about__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0.75rem 0 0;
+
+  & + & {
+    padding-left: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+    border-left: 1px solid rgba(var(--color-white), 0.1);
   }
-  25%,
-  75% {
-    opacity: 0;
-  }
+}
+
+.about__stat-value {
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgb(var(--color-white));
+}
+
+.about__stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.about__stat-suffix {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about__stat-label {
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.9rem);
+  line-height: 1.35;
+  color: rgb(var(--color-muted));
 }
