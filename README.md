@@ -23,6 +23,8 @@ The project is not a final version — I continuously improve and expand it as I
 - React
 - TypeScript
 - SCSS Modules
+- GSAP (ScrollTrigger, SplitText) + @gsap/react
+- Lenis (smooth scroll)
 - React i18next
 - React Portals
 - HTML5
@@ -32,19 +34,21 @@ The project is not a final version — I continuously improve and expand it as I
 ## ✨ Key Features
 
 ### 🎨 UI & Design
-- Fully responsive layout for all devices
-- Custom design system with SCSS variables and mixins
-- Grid-based layout system
-- Advanced hover effects (scale, color transitions, interactive states)
-- Component-based configuration approach
-- Custom logo and visual identity
+- Scroll storytelling: every section is a "scene" driven by the scroll
+- Preloader with counter and curtain reveal
+- Pinned hero that scales away while the content sheet slides over it
+- Pinned horizontal projects gallery with video parallax
+- Stacking soft-skill cards, scroll-driven experience timeline
+- Velocity-based technology marquee, split-text reveals, magnetic buttons, custom cursor
+- Fully responsive layout — all blocks are visible on mobile
+- Custom design system with SCSS tokens (Unbounded + Manrope, violet / fuchsia palette)
 
 ### ⚙️ Functionality
 - Multi-language support (4 languages via i18n)
-- Scroll-based animations and reveal effects
-- Keyboard support (ESC for modal and interactions)
-- Custom hooks (e.g. typing animation effects)
-- Navigation system across sections
+- Smooth scroll synced with GSAP ScrollTrigger
+- Respects `prefers-reduced-motion` (animations and smooth scroll are disabled)
+- Keyboard support (ESC for modal and menu)
+- Fullscreen mobile menu, video modal, copy-to-clipboard email
 - Terminal-style developer contact section
 
 ### 🧩 Architecture

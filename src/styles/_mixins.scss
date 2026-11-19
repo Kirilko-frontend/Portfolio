@@ -116,14 +116,6 @@
   line-height: $line-height;
 }
 
-@mixin hover-accent {
-  transition: $transition;
-
-  &:hover {
-    color: $color-accent;
-  }
-}
-
 @mixin respond-up($key) {
   $size: map-get($breakpoints, $key);
 
