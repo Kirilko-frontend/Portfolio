@@ -1,10 +1,14 @@
+import { useId } from 'react';
+
 import type { IconProps } from '@/types/icons';
 
 const IconTelegram1 = (props: IconProps) => {
   const { className } = props;
+  // Уникальные id: иконка может быть на странице несколько раз (меню, карточка, футер)
+  const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '');
   return (
     <svg className={className} viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clipPath="url(#clip0_2044_58)">
+      <g clipPath={`url(#clip0_2044_58${uid})`}>
         <path
           d="M256 512C397.385 512 512 397.385 512 256C512 114.615 397.385 0 256 0C114.615 0 0 114.615 0 256C0 397.385 114.615 512 256 512Z"
           fill="#039BE5"
@@ -15,7 +19,7 @@ const IconTelegram1 = (props: IconProps) => {
         />
       </g>
       <defs>
-        <clipPath id="clip0_2044_58">
+        <clipPath id={`clip0_2044_58${uid}`}>
           <rect width="512" height="512" fill="white" />
         </clipPath>
       </defs>
