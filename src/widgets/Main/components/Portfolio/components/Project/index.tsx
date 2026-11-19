@@ -67,7 +67,8 @@ const Project = (props: IProps) => {
         <video
           ref={videoRef}
           className={styles['project__video']}
-          src={preview}
+          // #t=0.1 — браузер покажет первый кадр как обложку, пока видео не запустилось
+          src={`${preview}#t=0.1`}
           loop
           muted
           playsInline

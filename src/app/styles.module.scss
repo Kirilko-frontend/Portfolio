@@ -5,18 +5,3 @@
   // clip вместо hidden — не создаёт scroll-контейнер и не ломает position: sticky
   overflow-x: clip;
 }
-
-.app__scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-
-  height: 0.125rem;
-  border-radius: 0 99rem 99rem 0;
-
-  background: linear-gradient(90deg, rgb(var(--color-accent)), rgb(var(--color-accent-2)));
-  box-shadow: 0 0 0.75rem rgba(var(--color-accent), 0.7);
-
-  will-change: width;
-}
