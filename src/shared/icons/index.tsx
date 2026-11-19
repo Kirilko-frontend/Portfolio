@@ -9,6 +9,7 @@ import IconTelegram1 from './IconTelegram-1';
 import IconInstagram1 from './IconInstagram-1';
 import IconCross1 from './IconCross-1';
 import IconBurgeMenu1 from './IconBurgeMenu-1';
+import IconArrow1 from './IconArrow-1';
 
 export {
   Logo,
@@ -22,4 +23,5 @@ export {
   IconInstagram1,
   IconCross1,
   IconBurgeMenu1,
+  IconArrow1,
 };
