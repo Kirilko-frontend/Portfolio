@@ -1,11 +1,13 @@
 .container {
-  max-width: 120rem;
+  width: 100%;
+  max-width: 100rem;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 var(--gutter);
 }
 
 .section {
-  padding: 2rem;
+  position: relative;
+  padding-block: calc(var(--section-space) / 2);
 }
 
 .wrapper {

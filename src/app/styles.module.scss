@@ -1,7 +1,9 @@
 .app {
+  position: relative;
   min-height: 100dvh;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  // clip вместо hidden — не создаёт scroll-контейнер и не ломает position: sticky
+  overflow-x: clip;
 }
 
 .app__scroll-progress {

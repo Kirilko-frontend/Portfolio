@@ -1,5 +1,6 @@
 import useMouseGlow from '@shared/hooks/useMouseGlow';
 import useScrollProgress from '@shared/hooks/useScrollProgress';
+import useSmoothScroll from '@shared/hooks/useSmoothScroll';
 
 import styles from './styles.module.scss';
 
@@ -7,6 +8,8 @@ import Header from '@widgets/Header';
 import Main from '@widgets/Main';
 
 const App = () => {
+  useSmoothScroll();
+
   const scrollProgress = useScrollProgress();
   const cursorGlowRef = useMouseGlow();
 
