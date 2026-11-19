@@ -20,6 +20,8 @@
 
 .block__period {
   grid-area: period;
+  // Размер даты считается от ширины колонки (cqi), чтобы «Сентябрь 2025» всегда влезал в одну строку
+  container-type: inline-size;
   display: flex;
   flex-direction: column-reverse;
   gap: 0.25rem;
@@ -35,9 +37,10 @@
 
 .block__period-to {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1rem + 2vw, 3rem);
+  font-size: clamp(1.25rem, min(8.5cqi, 1rem + 2vw), 3rem);
   font-weight: 600;
   line-height: 1;
+  white-space: nowrap;
   letter-spacing: -0.035em;
   color: rgb(var(--color-white));
 }
