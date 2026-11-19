@@ -73,7 +73,6 @@
     gap: 2.5rem;
     width: max-content;
     padding-inline: max(var(--gutter), calc((100vw - 100rem) / 2 + var(--gutter)));
-    perspective: 1800px;
     will-change: transform;
   }
 }

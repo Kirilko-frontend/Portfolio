@@ -37,62 +37,66 @@ const Portfolio = () => {
         if (!track) return;
 
         const cards = gsap.utils.toArray<HTMLElement>('[data-project]');
-        const getDistance = () => track.scrollWidth - window.innerWidth;
+        const fill = rootRef.current?.querySelector<HTMLElement>(
+          `.${styles['portfolio__progress-fill']}`
+        );
+        const setFill = fill ? gsap.quickSetter(fill, 'scaleX') : null;
 
-        // Счётчик показывает проект, который ближе всего к центру экрана.
-        // Считается в onUpdate самой анимации, т.к. лента догоняет скролл с задержкой (scrub: 1)
-        const updateCounter = () => {
-          const center = window.innerWidth / 2;
+        let distance = 0;
+        // Центры карточек внутри ленты — считаются один раз на refresh,
+        // а не через getBoundingClientRect на каждом кадре
+        let centers: number[] = [];
+        let currentIndex = -1;
+
+        const measure = () => {
+          distance = track.scrollWidth - window.innerWidth;
+          centers = cards.map((card) => card.offsetLeft + card.offsetWidth / 2);
+        };
+        measure();
+
+        // Счётчик (проект ближе всего к центру экрана) и полоса прогресса —
+        // в onUpdate одной анимации, DOM трогаем только когда номер меняется
+        const update = (progress: number) => {
+          setFill?.(progress);
+
+          const center = progress * distance + window.innerWidth / 2;
           let closest = 0;
-          let minDistance = Infinity;
-
-          cards.forEach((card, index) => {
-            const rect = card.getBoundingClientRect();
-            const distance = Math.abs(rect.left + rect.width / 2 - center);
-            if (distance < minDistance) {
-              minDistance = distance;
-              closest = index;
-            }
+          centers.forEach((c, i) => {
+            if (Math.abs(c - center) < Math.abs(centers[closest] - center)) closest = i;
           });
 
-          if (counterRef.current) {
+          if (closest !== currentIndex && counterRef.current) {
+            currentIndex = closest;
             counterRef.current.textContent = String(closest + 1).padStart(2, '0');
           }
         };
 
+        // scrub: true — Lenis уже сглаживает скролл, второе сглаживание давало ощутимую задержку
         const horizontal = gsap.to(track, {
-          x: () => -getDistance(),
+          x: () => -distance,
           ease: 'none',
-          onUpdate: updateCounter,
+          onUpdate() {
+            update(this.progress());
+          },
           scrollTrigger: {
             trigger: pinRef.current,
             start: 'top top',
-            end: () => `+=${getDistance()}`,
+            end: () => `+=${distance}`,
             pin: true,
-            scrub: 1,
+            scrub: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            onRefreshInit: measure,
           },
         });
 
-        gsap.to(`.${styles['portfolio__progress-fill']}`, {
-          scaleX: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: pinRef.current,
-            start: 'top top',
-            end: () => `+=${getDistance()}`,
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        // Параллакс видео внутри карточек + лёгкий наклон карточек при движении
+        // Параллакс видео внутри карточек + лёгкое «приближение» карточки к центру.
+        // Двигаем обёртку, а не сам <video>, чтобы не конфликтовать с CSS-hover
         cards.forEach((card) => {
-          const video = card.querySelector('[data-parallax]');
+          const parallax = card.querySelector('[data-parallax]');
 
           gsap.fromTo(
-            video,
+            parallax,
             { xPercent: -6 },
             {
               xPercent: 6,
@@ -109,9 +113,8 @@ const Portfolio = () => {
 
           gsap.fromTo(
             card,
-            { rotateY: -12, scale: 0.92 },
+            { scale: 0.92 },
             {
-              rotateY: 0,
               scale: 1,
               ease: 'none',
               scrollTrigger: {
@@ -173,6 +176,7 @@ const Portfolio = () => {
               linkGithub={project.linkGithub}
               linkDemo={project.linkDemo}
               preview={project.preview}
+              poster={project.poster}
               onOpen={() => setActiveVideo({ src: project.preview, title: project.title })}
             />
           ))}

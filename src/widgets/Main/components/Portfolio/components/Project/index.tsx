@@ -14,6 +14,7 @@ interface IProps {
   linkGithub: string;
   linkDemo: string;
   preview: string;
+  poster: string;
   onOpen: () => void;
 }
 
@@ -32,13 +33,13 @@ const parseDescription = (text: string) => {
 };
 
 const Project = (props: IProps) => {
-  const { index, total, title, date, description, linkGithub, linkDemo, preview, onOpen } = props;
+  const { index, total, title, date, description, linkGithub, linkDemo, preview, poster, onOpen } = props;
   const { t } = useTranslation();
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const { description: text, stack } = parseDescription(description);
 
-  // Производительность: видео (сейчас 4K) не грузится, пока карточка далеко от экрана,
+  // Производительность: видео не грузится, пока карточка далеко от экрана,
   // и проигрывается только пока его видно
   useEffect(() => {
     const video = videoRef.current;
@@ -86,15 +87,17 @@ const Project = (props: IProps) => {
         data-cursor={t('portfolio.play')}
         aria-label={`${t('portfolio.play')}: ${title}`}
       >
-        <video
-          ref={videoRef}
-          className={styles['project__video']}
-          loop
-          muted
-          playsInline
-          preload="none"
-          data-parallax
-        />
+        <span className={styles['project__parallax']} data-parallax>
+          <video
+            ref={videoRef}
+            className={styles['project__video']}
+            poster={poster}
+            loop
+            muted
+            playsInline
+            preload="none"
+          />
+        </span>
         <span className={styles['project__shade']} aria-hidden="true" />
       </button>
 
