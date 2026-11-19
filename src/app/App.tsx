@@ -10,6 +10,7 @@ import styles from './styles.module.scss';
 
 import Header from '@widgets/Header';
 import Main from '@widgets/Main';
+import Footer from '@widgets/Footer';
 
 const App = () => {
   useSmoothScroll();
@@ -32,6 +33,7 @@ const App = () => {
 
         <Header />
         <Main />
+        <Footer />
       </div>
     </IntroContext.Provider>
   );
