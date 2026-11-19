@@ -4,8 +4,20 @@ import preview3 from '/projects-videos/project-3.mp4';
 import poster1 from '/projects-videos/project-1.jpg';
 import poster2 from '/projects-videos/project-2.jpg';
 import poster3 from '/projects-videos/project-3.jpg';
+import preview4 from '/projects-videos/project-4.mp4';
+import poster4 from '/projects-videos/project-4.jpg';
 
+// Порядок = порядок в ленте; DevTrack — самый свежий и главный проект, идёт первым
 const projects = [
+  {
+    id: 4,
+    title: 'DevTrack',
+    date: 'portfolio.date4',
+    linkGithub: 'https://github.com/Kirilko-frontend/devtrack',
+    linkDemo: 'https://devtrack-frontend-e0ru.onrender.com/',
+    preview: preview4,
+    poster: poster4,
+  },
   {
     id: 1,
     title: 'Rental car',
