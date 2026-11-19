@@ -1,0 +1,95 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: var(--gutter);
+
+  background:
+    radial-gradient(60rem 40rem at 50% 120%, rgba(var(--color-accent), 0.25), transparent 70%),
+    rgb(var(--color-surface));
+  color: rgb(var(--color-white));
+
+  clip-path: inset(0% 0% 0% 0%);
+  will-change: clip-path;
+}
+
+// Маска: всё, что внутри, выезжает снизу и уезжает вверх
+.preloader__mask {
+  overflow: hidden;
+
+  > * {
+    display: block;
+  }
+}
+
+.preloader__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.preloader__meta {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(var(--color-muted));
+}
+
+.preloader__words {
+  position: relative;
+  align-self: center;
+  justify-self: center;
+
+  height: 1.1em;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1rem + 5vw, 5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.preloader__word {
+  position: absolute;
+  inset: 0;
+
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.preloader__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.preloader__line {
+  flex: 1;
+  height: 1px;
+  margin-bottom: 1.5em;
+  background: rgba(var(--color-white), 0.12);
+}
+
+.preloader__line-fill {
+  display: block;
+  height: 100%;
+  background: var(--gradient-accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.preloader__counter {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2rem + 12vw, 13rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}

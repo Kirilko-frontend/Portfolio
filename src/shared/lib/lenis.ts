@@ -3,8 +3,22 @@ import Lenis from 'lenis';
 import { gsap, ScrollTrigger, prefersReducedMotion } from './gsap';
 
 let lenis: Lenis | null = null;
+let isLocked = false;
 
 export const getLenis = () => lenis;
+
+/** Блокирует скролл (например, пока идёт прелоадер или открыто меню). */
+export const lockScroll = () => {
+  isLocked = true;
+  lenis?.stop();
+  document.documentElement.style.overflow = 'hidden';
+};
+
+export const unlockScroll = () => {
+  isLocked = false;
+  lenis?.start();
+  document.documentElement.style.overflow = '';
+};
 
 /**
  * Запускает плавный скролл Lenis и синхронизирует его с ScrollTrigger.
@@ -26,6 +40,7 @@ export const startLenis = () => {
   gsap.ticker.lagSmoothing(0);
 
   lenis = instance;
+  if (isLocked) instance.stop();
 
   return () => {
     gsap.ticker.remove(onTick);
