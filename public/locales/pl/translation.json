@@ -124,7 +124,14 @@
     "heading": "Moja droga do tej pory"
   },
   "contact": {
-    "title": "Kontakt"
+    "title": "Kontakt",
+    "eyebrow": "Kontakt",
+    "heading-1": "Zbudujmy razem",
+    "heading-2": "coś świetnego",
+    "description": "Jestem otwarty na pracę na etat, projekty freelance i ciekawe współprace. Napisz — porozmawiajmy o Twoim pomyśle.",
+    "email-label": "Napisz maila",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!"
   },
   "hero": {
     "status": "Otwarty na oferty",
@@ -133,5 +140,12 @@
     "cta-projects": "Zobacz projekty",
     "cta-contact": "Skontaktuj się",
     "scroll": "Przewiń"
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone",
+    "local-time": "Czas lokalny",
+    "back-to-top": "Do góry",
+    "made": "Projekt i kod — Kyrylo",
+    "nav": "Nawigacja"
   }
 }

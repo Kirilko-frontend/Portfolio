@@ -125,7 +125,14 @@
     "heading": "My path so far"
   },
   "contact": {
-    "title": "Contact"
+    "title": "Contact",
+    "eyebrow": "Contact",
+    "heading-1": "Let's build",
+    "heading-2": "something great",
+    "description": "Open to full-time roles, freelance projects and interesting collaborations. Write me and let's talk about your idea.",
+    "email-label": "Email me",
+    "copy": "Copy",
+    "copied": "Copied!"
   },
   "hero": {
     "status": "Open to work",
@@ -134,5 +141,12 @@
     "cta-projects": "View projects",
     "cta-contact": "Get in touch",
     "scroll": "Scroll"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "local-time": "Local time",
+    "back-to-top": "Back to top",
+    "made": "Designed & built by Kyrylo",
+    "nav": "Navigation"
   }
 }
